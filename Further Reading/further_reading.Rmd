@@ -1,0 +1,14 @@
+---
+title: "Further Reading"
+author: "Steffen Ehrmann, Alex Zizka"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+A list with minor comments to the content provided behind the links, for students who are interested in learning more about the concepts behind stuff... (*SE: let's see if we wanna keep it...*)
+
+# Object Oriented Programming in R
+
+## S4
+
+https://cran.r-project.org/doc/contrib/Genolini-S4tutorialV0-5en.pdf
