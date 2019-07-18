@@ -17,7 +17,7 @@ The course guides through the process of building and R package starting from co
 This is a course for graduate students and researchers that routinely use R for analysis and want to learn how to distribute data and code as R package.
 
 ## Required reading
-http://r-pkgs.had.co.nz/
+http://r-pkgs.had.co.nz/. Please read chapters 
 
 ## Number of students
 max. 10
