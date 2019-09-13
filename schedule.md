@@ -2,7 +2,7 @@
 
 ## Day 1 - 23.09.2019
 
-*9:00 Introduction*
+*9:30 Introduction*
 
 - Welcome & Introduction of the teachers
 - A short lecture/demonstration on what R packages are and can do with some examples, to inspire the students
