@@ -1,11 +1,8 @@
 ---
 title: "Further Reading"
-author: "Steffen Ehrmann, Alex Zizka"
-date: "`r Sys.Date()`"
-output: html_document
 ---
 
-A list of links and a couple of comments on the content behind the links. For students who are interested in learning more about the concepts behind stuff... (*SE: let's see if we wanna keep it...*)
+A list of links and a literaature giving more backgournd on programming and package developement in R.
 
 # Object Oriented Programming in R
 

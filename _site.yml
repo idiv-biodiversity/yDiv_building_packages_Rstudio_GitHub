@@ -1,4 +1,4 @@
-name: building r packages with Rstudio and GitHub
+name: building_r_packages_with_Rstudio_and_GitHub
 output_dir: docs
 navbar:
   title: Building R-packages with Rstudio and Github
@@ -23,9 +23,6 @@ navbar:
       href: 06_deploy_to_cran_exercise.html
     - text: 07 - Vignettes
       href: 07_vignettes_exercise.html
-  - text: Lectures
-    menu:
-    - text: Lecture one
   right:
   - text: GitHub
     href: https://github.com/idiv-biodiversity/yDiv_building_packages_Rstudio_GitHub
