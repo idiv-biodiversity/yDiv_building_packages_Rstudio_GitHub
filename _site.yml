@@ -1,0 +1,36 @@
+name: building r packages with Rstudio and GitHub
+output_dir: docs
+navbar:
+  title: Building R-packages with Rstudio and Github
+  type: inverse
+  left:
+  - text: Home
+    icon: fa-home
+    href: index.html
+  - text: Tutorials
+    menu:
+    - text: 01 - Package skeleton
+      href: 01_package_skeleton_exercise.html
+    - text: 02 - Data
+      href: 02_data_exercise.html
+    - text: 03 - Functions and documentation
+      href: 03_functions_exercise.html
+    - text: 04 - Building and checks
+      href: 04_building_and_checks_exercise.html
+    - text: 05 - Package testing
+      href: 05_testing_exercise.html
+    - text: 06 - Deployment to CRAN
+      href: 06_deploy_to_cran_exercise.html
+    - text: 07 - Vignettes
+      href: 07_vignettes_exercise.html
+  - text: Lectures
+    menu:
+    - text: Lecture one
+  right:
+  - text: GitHub
+    href: https://github.com/idiv-biodiversity/yDiv_building_packages_Rstudio_GitHub
+output:
+  html_document:
+    lib_dir: site_libs
+    self_contained: no
+
