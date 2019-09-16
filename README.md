@@ -30,15 +30,16 @@ Day 2 - 9:30 - 18:00
 
 # Before the course
 Please:
-1. Make sure to have the following software installed an running on your computer before the course:
 
-*	R (>3.5, https://cran.r-project.org/) 
-*	Rstudio (https://www.rstudio.com/products/rstudio/download/#download)
-*	Rtools (https://cran.rstudio.com/bin/windows/Rtools/ for windows, see https://www.rstudio.com/products/rpackages/devtools/ for Mac and linux)
-*	Git (https://git-scm.com/downloads)
-*	If you do not yet have a github account, please open one at https://github.com/
+* Make sure to have the following software installed an running on your computer before the course:
 
-2. Read chapters 2, 6-10 and 16 of this free online book: https://r-pkgs.org/. 
+  *	R (>3.5, https://cran.r-project.org/) 
+  *	Rstudio (https://www.rstudio.com/products/rstudio/download/#download)
+  *	Rtools (https://cran.rstudio.com/bin/windows/Rtools/ for windows, see https://www.rstudio.com/products/rpackages/devtools/ for Mac and linux)
+  *	Git (https://git-scm.com/downloads)
+  *	If you do not yet have a github account, please open one at https://github.com/
+
+* Read chapters 2, 6-10 and 16 of this free online book: https://r-pkgs.org/. 
 
 Please do not hesitate to [contact us](mailto:zizka.alexander@gmail.com) if you have any questions.
 
