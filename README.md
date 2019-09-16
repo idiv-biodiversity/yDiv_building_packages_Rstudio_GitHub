@@ -4,7 +4,7 @@ Date & time: Monday, September 23 – Tuesday, September 24, 2018 (5 full days)
 
 Location: Leipzig, Deutscher Platz, German Centre for Integrative Biodiversity Research (iDiv) - Interim III, Metamorphosis, 
 
-Teachers: Alexandre Zizka & Steffen Ehrmann, University of Leipzig and German Centre for Integrative Biodiversity Research  
+Teachers: Alexander Zizka & Steffen Ehrmann, University of Leipzig and German Centre for Integrative Biodiversity Research  
 
 
 # Detailed schedule and locations
@@ -14,8 +14,8 @@ Day 1 - 9:30 - 18:00
 * 10:00 Lecture "Main components of an R-package"
 * 11:00 Lecture "Tools and workflow for building R packages"
 * 12:00 Lunch
-* 13:00 Demo + Exercise 1 & 2: "Package skeleton and data""
-* 14:30 Demo + Exercise 3: "Functions and Documentation""
+* 13:00 Demo + Exercise 1 & 2: "Package skeleton and data"
+* 14:30 Demo + Exercise 3: "Functions and Documentation"
 * 16:30 Demo + Exercise 4: "Package building and checking"
 
 Day 2 - 9:30 - 18:00
