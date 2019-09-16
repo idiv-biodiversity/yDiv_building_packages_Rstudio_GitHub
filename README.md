@@ -64,7 +64,7 @@ Grades are pass/fail. Successful participants should participate in all course d
 
 
 # Literature
-http://r-pkgs.had.co.nz/, chapters 2, 6-10 and 16.
+https://r-pkgs.org/, chapters 2, 6-10 and 16.
 
 
 ## Course level and requirements
