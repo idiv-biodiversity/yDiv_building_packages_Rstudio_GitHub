@@ -1,13 +1,19 @@
+---
+output: 
+  html_document:
+    theme: readable
+---
+
 # yDiv Course: Building R packages with Rstudio and GitHub
 
-Date & time: Monday, September 23 – Tuesday, September 24, 2018 (5 full days)
+Date & time: Monday, September 23 - Tuesday, September 24, 2018 (5 full days)
 
 Location: Leipzig, Deutscher Platz, German Centre for Integrative Biodiversity Research (iDiv) - Interim III, Metamorphosis, 
 
-Teachers: Alexandre Zizka & Steffen Ehrmann, University of Leipzig and German Centre for Integrative Biodiversity Research  
+Teachers: Alexandre Zizka & Steffen Ehrmann, University of Leipzig/German Centre for Integrative Biodiversity Research  
 
 
-# Detailed schedule and locations
+## Detailed schedule and locations
 Day 1 - 9:30 - 18:00
 
 * 9:30 Introduction
@@ -28,7 +34,7 @@ Day 2 - 9:30 - 18:00
 * 16:15 Student presentations
 * 17:15 Course evaluation and Wrap up
 
-# Before the course
+## Before the course
 Please:
 1. Make sure to have the following software installed an running on your computer before the course:
 
@@ -43,7 +49,7 @@ Please:
 Please do not hesitate to [contact us](mailto:zizka.alexander@gmail.com) if you have any questions.
 
 
-# Objectives
+## Objectives
 After this course, students will be able to
 
 1. understand the structure of R-packages and their main elements	
@@ -51,19 +57,19 @@ After this course, students will be able to
 3. use common tools for packaging, including roxygen2, devtools, and GitHub
 
 
-# Background
+## Background
 R is a widely used tool for data analyses in ecology. Part of its success is due to the active community and the wide array of add-on packages contributed by scientists from across disciplines, via the CRAN network. R packages are an excellent and standardize way to distribute code and data to a huge community, and a great tool to ensure reproducible research. The course guides through the process of building and R package starting from conceptualization to testing. The course consists of introductory demonstrations coupled with hands-on exercises on the different stages of package building, plus time to work on a small example.
 
 
-# Project Assignment
+## Project Assignment
 During the course you will write a small data package based on your own data with guidance from the teachers.
 
 
-# Examination
+## Examination
 Grades are pass/fail. Successful participants should participate in all course days and present a project on the last day. A certification will be issued for all participants.
 
 
-# Literature
+## Literature
 http://r-pkgs.had.co.nz/, chapters 2, 6-10 and 16.
 
 
@@ -75,5 +81,5 @@ This is a course for graduate students and researchers that routinely use R for 
 max. 10
 
 
-# Language of instruction
+## Language of instruction
 English
