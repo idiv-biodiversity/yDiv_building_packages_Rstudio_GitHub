@@ -10,22 +10,48 @@ output: revealjs::revealjs_presentation
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## `devtools`
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+tools for building, documenting and testing packages
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+[devtools](https://cran.r-project.org/web/packages/devtools)
 
-```{r cars}
-summary(cars)
-```
 
-## Including Plots
+## `usethis`
 
-You can also embed plots, for example:
+provides many functions that help setting up a package
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+provides a "standard way of doing things" that ensures you miss no (crucial) step
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+[usethis](https://cran.r-project.org/web/packages/usethis/),
+
+
+## `testthat`
+
+specify what you expect your functions to do
+
+write unit-tests (test for similar sets of tasks) that validate your expectations
+
+display test progress visually
+
+[testthat](https://cran.r-project.org/web/packages/testthat/),
+
+
+## `roxygen`
+
+generate R documentation
+
+manage the package namespace
+
+[roxygen2](https://cran.r-project.org/web/packages/roxygen2/)
+
+
+## `checkmate`
+
+make sure that arguments are what they should be
+
+test whether and assert that certain conditions about objects are true
+
+extend the capabilities of `testthat`
+
+[checkmate](https://cran.r-project.org/web/packages/checkmate/),
