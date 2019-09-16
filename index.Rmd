@@ -6,7 +6,7 @@ output:
 
 # yDiv Course: Building R packages with Rstudio and GitHub
 
-Date & time: Monday, September 23 - Tuesday, September 24, 2018 (5 full days)
+Date & time: Monday, September 23 - Tuesday, September 24, 2019 (5 full days)
 
 Location: Leipzig, Deutscher Platz, German Centre for Integrative Biodiversity Research (iDiv) - Interim III, Metamorphosis, 
 
@@ -14,6 +14,7 @@ Teachers: Alexander Zizka & Steffen Ehrmann, University of Leipzig/German Centre
 
 
 ## Detailed schedule and locations
+
 Day 1 - 9:30 - 18:00
 
 * 9:30 Introduction
@@ -35,21 +36,24 @@ Day 2 - 9:30 - 18:00
 * 17:15 Course evaluation and Wrap up
 
 ## Before the course
+
 Please:
-1. Make sure to have the following software installed an running on your computer before the course:
 
-*	R (>3.5, https://cran.r-project.org/) 
-*	Rstudio (https://www.rstudio.com/products/rstudio/download/#download)
-*	Rtools (https://cran.rstudio.com/bin/windows/Rtools/ for windows, see https://www.rstudio.com/products/rpackages/devtools/ for Mac and linux)
-*	Git (https://git-scm.com/downloads)
-*	If you do not yet have a github account, please open one at https://github.com/
+* Make sure to have the following software installed an running on your computer before the course:
 
-2. Read chapters 2, 6-10 and 16 of this free online book: https://r-pkgs.org/. 
+  *	R (>3.5, https://cran.r-project.org/) 
+  *	Rstudio (https://www.rstudio.com/products/rstudio/download/#download)
+  *	Rtools (https://cran.rstudio.com/bin/windows/Rtools/ for windows, see https://www.rstudio.com/products/rpackages/devtools/ for Mac and linux)
+  *	Git (https://git-scm.com/downloads)
+  *	If you do not yet have a github account, please open one at https://github.com/
+
+* Read chapters 2, 6-10 and 16 of this free online book: https://r-pkgs.org/. 
 
 Please do not hesitate to [contact us](mailto:zizka.alexander@gmail.com) if you have any questions.
 
 
 ## Objectives
+
 After this course, students will be able to
 
 1. understand the structure of R-packages and their main elements	

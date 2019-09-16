@@ -1,6 +1,6 @@
 # yDiv Course: Building R packages with Rstudio and GitHub
 
-Date & time: Monday, September 23 – Tuesday, September 24, 2018 (5 full days)
+Date & time: Monday, September 23 – Tuesday, September 24, 2019 (5 full days)
 
 Location: Leipzig, Deutscher Platz, German Centre for Integrative Biodiversity Research (iDiv) - Interim III, Metamorphosis, 
 
