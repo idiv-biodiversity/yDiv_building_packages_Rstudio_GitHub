@@ -10,6 +10,7 @@
 
 
 
+<meta name="date" content="2019-09-17" />
 
 <title>Package skeleton</title>
 
@@ -374,11 +375,105 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Package skeleton</h1>
+<h4 class="date">2019-09-17</h4>
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#create-the-package">Create the package</a></li>
+<li><a href="#set-up-github">Set up git(hub)</a></li>
+<li><a href="#set-a-license">Set a license</a></li>
+<li><a href="#edit-description">Edit <code>DESCRIPTION</code></a><ul>
+<li><a href="#versioning">Versioning</a></li>
+<li><a href="#include-your-orcid">Include your OrcID</a></li>
+</ul></li>
+</ul>
+</div>
 
-<p>TBA</p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Initial blabla about package skeleton</p>
+<pre class="r"><code>library(devtools)</code></pre>
+<pre><code>## Loading required package: usethis</code></pre>
+</div>
+<div id="create-the-package" class="section level1">
+<h1>Create the package</h1>
+<pre class="r"><code>create_package(&quot;/home/se87kuhe/my_science/r-dev/myPackage&quot;, rstudio = TRUE, open = TRUE)
+#&gt; ✔ Creating '/home/se87kuhe/my_science/r-dev/myPackage/'
+#&gt; ✔ Setting active project to '/home/se87kuhe/my_science/r-dev/myPackage'
+#&gt; ✔ Creating 'R/'
+#&gt; ✔ Writing 'DESCRIPTION'
+#&gt; Package: myPackage
+#&gt; Title: What the Package Does (One Line, Title Case)
+#&gt; Version: 0.0.0.9000
+#&gt; Authors@R (parsed):
+#&gt;     * First Last &lt;first.last@example.com&gt; [aut, cre] (&lt;https://orcid.org/YOUR-ORCID-ID&gt;)
+#&gt; Description: What the package does (one paragraph).
+#&gt; License: What license it uses
+#&gt; Encoding: UTF-8
+#&gt; LazyData: true
+#&gt; ✔ Writing 'NAMESPACE'
+#&gt; ✔ Writing 'myPackage.Rproj'
+#&gt; ✔ Adding '.Rproj.user' to '.gitignore'
+#&gt; ✔ Adding '^myPackage\\.Rproj$', '^\\.Rproj\\.user$' to '.Rbuildignore'
+#&gt; ✔ Opening '/home/se87kuhe/my_science/r-dev/myPackage/' in new RStudio session
+#&gt; ✔ Setting active project to '/home/se87kuhe/my_science/teaching/yDiv_building_r_packages'</code></pre>
+</div>
+<div id="set-up-github" class="section level1">
+<h1>Set up git(hub)</h1>
+<p>The previous step will have started another instance of RStudio. There you need to call <code>library(devtools)</code> again.</p>
+<pre class="r"><code>library(devtools)
+use_git()
+#&gt; ✔ Setting active project to '/home/se87kuhe/my_science/r-dev/myPackage'
+#&gt; ✔ Initialising Git repo
+#&gt; ✔ Adding '.Rhistory', '.RData' to '.gitignore'
+#&gt; There are 5 uncommitted files:
+#&gt; * '.gitignore'
+#&gt; * '.Rbuildignore'
+#&gt; * 'DESCRIPTION'
+#&gt; * 'myPackage.Rproj'
+#&gt; * 'NAMESPACE'
+#&gt; Is it ok to commit them?
+#&gt; 
+#&gt; 1: Negative
+#&gt; 2: For sure
+#&gt; 3: No way
+#&gt; 
+#&gt; Selection: 2
+#&gt; ✔ Adding files
+#&gt; ✔ Commit with message 'Initial commit'
+#&gt; ● A restart of RStudio is required to activate the Git pane
+#&gt; Restart now?
+#&gt; 
+#&gt; 1: Nope
+#&gt; 2: I agree
+#&gt; 3: Absolutely not
+#&gt; 
+#&gt; Selection: 2</code></pre>
+<p>Which would restart RStudio once again to update its interface for git-functionality (i.e., add buttons to access and manage git). Call <code>library(devtools)</code> once again.</p>
+<p>Now set up a github repository (at <a href="www.github.com">www.github.com</a>), into which the code will be pushed.</p>
+</div>
+<div id="set-a-license" class="section level1">
+<h1>Set a license</h1>
+<p>A bit on licenses?</p>
+<pre class="r"><code>use_gpl3_license(name = &quot;me&quot;)
+#&gt; ✔ Setting License field in DESCRIPTION to 'GPL-3'
+#&gt; ✔ Writing 'LICENSE.md'
+#&gt; ✔ Adding '^LICENSE\\.md$' to '.Rbuildignore'</code></pre>
+</div>
+<div id="edit-description" class="section level1">
+<h1>Edit <code>DESCRIPTION</code></h1>
+<p>which fields do exist here and what do they mean?</p>
+<p>Some fields are gonna be added automatically with other <code>usethis</code> functions.</p>
+<div id="versioning" class="section level2">
+<h2>Versioning</h2>
+</div>
+<div id="include-your-orcid" class="section level2">
+<h2>Include your OrcID</h2>
+</div>
+</div>
 
 
 

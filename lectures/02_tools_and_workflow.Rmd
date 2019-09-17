@@ -23,7 +23,7 @@ provides many functions that help setting up a package
 
 provides a "standard way of doing things" that ensures you miss no (crucial) step
 
-[usethis](https://cran.r-project.org/web/packages/usethis/),
+[usethis](https://cran.r-project.org/web/packages/usethis/)
 
 
 ## `testthat`
@@ -34,7 +34,7 @@ write unit-tests (test for similar sets of tasks) that validate your expectation
 
 display test progress visually
 
-[testthat](https://cran.r-project.org/web/packages/testthat/),
+[testthat](https://cran.r-project.org/web/packages/testthat/)
 
 
 ## `roxygen`
@@ -54,4 +54,12 @@ test whether and assert that certain conditions about objects are true
 
 extend the capabilities of `testthat`
 
-[checkmate](https://cran.r-project.org/web/packages/checkmate/),
+[checkmate](https://cran.r-project.org/web/packages/checkmate/)
+
+## `lintr`
+
+check whether your code adheres to a given style/best practice on formatting
+
+(do this only if you have too much time!)
+
+[lintr](https://cran.r-project.org/web/packages/lintr/index.html)

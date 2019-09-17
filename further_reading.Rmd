@@ -10,7 +10,7 @@ A list of links and literature giving more background on programming and package
 
 # Official guides
 
-The official R website (CRAN) provides a couple of [manuals](https://cran.r-project.org/manuals.html) and especially [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) is of importance when making a new package. Many of the standards defined there are already implemented in R Studio but you will most certainly encounter one or the other issue that requires you to study this guide.
+The official R website (CRAN) provides a couple of [manuals](https://cran.r-project.org/manuals.html) and especially [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) is of importance when making a new package. Many of the standards defined there are already implemented in R Studio but you will most certainly encounter one or the other issue that requires you to study (a part of) this guide.
 
 ## Bioconductor
 

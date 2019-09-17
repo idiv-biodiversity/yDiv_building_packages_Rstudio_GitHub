@@ -1,5 +1,5 @@
 ---
-title: "Data exercise"
+title: "Vignettes"
 output:
   html_document:
     toc: true
@@ -8,4 +8,4 @@ output:
 
 # Introduction
 
-Initial blabla about data
+Initial blabla about vignettes

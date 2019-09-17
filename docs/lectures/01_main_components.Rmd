@@ -10,22 +10,59 @@ output: revealjs::revealjs_presentation
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Why an R package
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+https://adv-r.hadley.nz/functions.html
+https://r4ds.had.co.nz/functions.html#introduction-12
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Before starting
 
-```{r cars}
-summary(cars)
-```
+Does a package of that kind already exist?
 
-## Including Plots
+What is different about yours? What is the usecase and unique feature of yours?
 
-You can also embed plots, for example:
+Are there any conventions/standards you could adapt? Is there a framework into which you want/should embed your package?
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+How shall it be called? (good luck with that...)
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Starting
+
+Set up an R-Studio Project (highly recommended): `create_package()`
+
+check out `Alt + shift + K` 
+
+## Package structure I
+
+`R/` 
+
+`NAMESPACE`
+
+`DIRECTORY`
+
+## Package structure II
+
+
+
+package from a creators point of view/on github, with all the possible directories and files; perhaps simply use a couple of screenshots
+
+## What is a function?
+
+functions, like variables are objects in R
+
+comprises a script and summarises a couple of related usecases that can be acccessed with arguments.
+
+thus, functions are an interface between a certain algorithm and the outside environment (humnans, other software)
+
+## What is a namespace?
+
+this is an important, yet perhaps confusing topic at first
+
+it is a wraper around the names of your packages' functions, so to speak
+
+the namespace informs the R ecosystem about which functions your package provides (*exports*) and which functions it utilizes (*imports*)
+
+it helps to avoid conflicts, in case functions names are or become duplicated
+
+## Package description
+
+

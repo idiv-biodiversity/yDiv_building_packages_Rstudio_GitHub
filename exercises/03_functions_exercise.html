@@ -377,8 +377,138 @@ $(document).ready(function () {
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#create-your-first-function">Create your first function</a><ul>
+<li><a href="#your-turn">Your turn</a></li>
+</ul></li>
+<li><a href="#write-a-documentation">Write a documentation</a><ul>
+<li><a href="#arguments">Arguments</a></li>
+<li><a href="#function-output">Function output</a></li>
+<li><a href="#export">Export</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#other-fields">Other fields</a></li>
+<li><a href="#update-documentation">Update documentation</a></li>
+<li><a href="#your-turn-1">Your turn</a></li>
+</ul></li>
+</ul>
+</div>
 
-<p>TBA</p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Initial blabla about functions and their documentation</p>
+</div>
+<div id="create-your-first-function" class="section level1">
+<h1>Create your first function</h1>
+<pre class="r"><code>use_r(name = &quot;greet&quot;)
+#&gt; ✔ Setting active project to '/home/se87kuhe/my_science/r-dev/myPackage'
+#&gt; ● Modify 'R/greet.R'</code></pre>
+<p>Insert and save the following code into the file that just opened:</p>
+<pre class="r"><code>greet &lt;- function(whom){
+  message(paste0(&quot;Hello '&quot;, whom, &quot;'!&quot;))
+}</code></pre>
+<p>Reload the package</p>
+<pre class="r"><code>load_all()
+#&gt; Loading myPackage</code></pre>
+<p>And run the function</p>
+<pre class="r"><code>greet(whom = &quot;World&quot;)
+#&gt; Hello 'World'!</code></pre>
+<div id="your-turn" class="section level2">
+<h2>Your turn</h2>
+<p>However, we want our function to do something more fancy, for instance …</p>
+<ul>
+<li>plot summary statistics of your data</li>
+<li>draw boxplots, a scatterplot or a timeline</li>
+<li>reproduce the analysis you carried out in your manuscript</li>
+<li>…</li>
+</ul>
+<p><em>Make an example with a bit about what required and what optional arguments are</em></p>
+<p><em>This is the point where the students shall write their own stuff…</em></p>
+</div>
+</div>
+<div id="write-a-documentation" class="section level1">
+<h1>Write a documentation</h1>
+<p>Now you learn what you need to put together the documentation of your function. This work is largely based on the package <code>roxygen2</code>. To signal to this package how the documentation shall look like, you have to write a couple of things by hand and tag them with markup codes. This markup code is a bit like latex, if you know that you will recognise many of the markup codes. For example, to start a list, you’d use the <code>\itemize{ \item }</code>-notation, to emphasize a word, you’d write <code>\emph{a word}</code> or to make a verbatim code statement, you’d write <code>\code{greet}</code>. Check out <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html">this link</a> for a complete documentation.</p>
+<p>Back in the tab that shows your function, insert a roxygen skeleton, via <em>Code &gt; Insert Roxygen Skeleton</em>. The file <code>greet.R</code> would then look as follows.</p>
+<pre class="r"><code>#' Title
+#'
+#' @param whom 
+#'
+#' @return 
+#' @export
+#'
+#' @examples
+
+greet &lt;- function(whom){
+  message(paste0(&quot;Hello '&quot;, whom, &quot;'!&quot;))
+}</code></pre>
+<div id="arguments" class="section level2">
+<h2>Arguments</h2>
+<p><code>@param</code> documents the functions parameters, or <em>arguments</em> in R terminology. There are no real conventions on how an argument shall be defined, however, since the <code>checkmate</code> package is around, some authors include information about the nature of the argument. Here, the type of argument, which would be expected by the test/assert-functions of <code>checkmate</code>, is explicitly mentioned.</p>
+<pre class="r"><code>#' @param whom [\code{character(1)}]\cr The person/entity that shall be greeted.</code></pre>
+<p>This documentation would show up as in <a href="https://mllg.github.io/checkmate/reference/checkCharacter.html#arguments">this link</a>. It makes clear that the argument is supposed to be a <code>character</code> vector with length 1.</p>
+</div>
+<div id="function-output" class="section level2">
+<h2>Function output</h2>
+<p><code>@return</code> typically documents a very brief description of what is being returned by the function. This does not document how the object has been derived but really merely what the object is.</p>
+</div>
+<div id="export" class="section level2">
+<h2>Export</h2>
+<p><code>@export</code> is a switch that is picked up by <code>roxygen2</code> to update the namespace, i.e., it signals that this function shall be exported into the R ecosystem (and thus be available publicly to other users).</p>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<p><code>@examples</code> showcases how the function works. Those examples are mostly for the humans that are supposed to understand and use your function. However, as we see later, they are also taken to check and validate the package.</p>
+</div>
+<div id="other-fields" class="section level2">
+<h2>Other fields</h2>
+<p><code>@details</code> Supply additional information that are required to understand your function. Often this is where it lacks, even in popular packages, so try to get into the habbit of properly explaining also “obvious” things.</p>
+<p><code>@section Something more</code> Adds the section <code>Something more</code> to your documentation. Everything in this line is the title and the text starts in the next line.</p>
+<p><code>@format</code> is typically used to document datasets and gives an overview of the data structure.</p>
+<p><code>@importFrom checkmate assertCharacter assertNames</code> informs <code>roxygen</code> that the functions <code>assertCharacter</code> and <code>assertNames</code> shall be imported from the package <code>checkmate</code>. We recommend that you document all non-base functions that are imported in your custom function, even if that would mean duplicated <code>@importFrom</code> statements for several functions. This ensures that you don’t forget to import anything and avoids debugging you would not understand easily at the beginning.</p>
+<p>There are some more tags that are not discussed here, see <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html">this link</a> for more.</p>
+</div>
+<div id="update-documentation" class="section level2">
+<h2>Update documentation</h2>
+<p>Fill in the following information into the documentation of <code>greet.R</code>.</p>
+<pre class="r"><code>#' Kindly greet the first user of your package
+#'
+#' @param whom [\code{character(1)}]\cr The person/entity that shall be greeted.
+#'
+#' @return Character string that greets.
+#' @export
+#'
+#' @examples
+#' # greet the world ...
+#' greet(whom = &quot;World&quot;)
+#'
+#' # ... or a range of numbers
+#' greet(c(1, 2, 3, 4))
+
+greet &lt;- function(whom){
+  message(paste0(&quot;Hello '&quot;, whom, &quot;'!&quot;))
+}</code></pre>
+<p>And build the documentation</p>
+<pre class="r"><code>document()
+#&gt; Updating myPackage documentation
+#&gt; Updating roxygen version in /home/se87kuhe/my_science/r-dev/myPackage/DESCRIPTION
+#&gt; Writing NAMESPACE
+#&gt; Loading myPackage
+#&gt; Writing NAMESPACE
+#&gt; Writing greet.Rd</code></pre>
+<p>Apparently <code>NAMESPACE</code> has been modified, that warrants that we check it out. It should contain now:</p>
+<pre class="r"><code># Generated by roxygen2: do not edit by hand
+
+export(greet)</code></pre>
+<p>We see that it contains a note and a single command. The note is to be taken seriously! If things in <code>NAMESPACE</code> are not as they are supposed to be, everything breaks. So keep your fingers off of that unless you consider yourself professional enough to mess around. The command says that the function <code>greet</code> shall be exported, as expected, because we have set the <code>@export</code> tag above.</p>
+<p>With <code>?greet</code> or <code>help(greet)</code> you can view the documentation you just wrote and built. In case you don’t like anything about it, revise the text and rebuild the documentation via <code>document()</code>.</p>
+</div>
+<div id="your-turn-1" class="section level2">
+<h2>Your turn</h2>
+<p>Do the same for your own function.</p>
+</div>
+</div>
 
 
 

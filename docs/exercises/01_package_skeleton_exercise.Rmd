@@ -1,4 +1,109 @@
 ---
 title: "Package skeleton"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
 ---
-TBA
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+setwd("/home/se87kuhe/my_science/r-dev")
+```
+
+# Introduction
+
+Initial blabla about package skeleton
+
+```{r}
+library(devtools)
+```
+
+
+# Create the package
+
+```{r, eval=FALSE}
+create_package("/home/se87kuhe/my_science/r-dev/myPackage", rstudio = TRUE, open = TRUE)
+#> ✔ Creating '/home/se87kuhe/my_science/r-dev/myPackage/'
+#> ✔ Setting active project to '/home/se87kuhe/my_science/r-dev/myPackage'
+#> ✔ Creating 'R/'
+#> ✔ Writing 'DESCRIPTION'
+#> Package: myPackage
+#> Title: What the Package Does (One Line, Title Case)
+#> Version: 0.0.0.9000
+#> Authors@R (parsed):
+#>     * First Last <first.last@example.com> [aut, cre] (<https://orcid.org/YOUR-ORCID-ID>)
+#> Description: What the package does (one paragraph).
+#> License: What license it uses
+#> Encoding: UTF-8
+#> LazyData: true
+#> ✔ Writing 'NAMESPACE'
+#> ✔ Writing 'myPackage.Rproj'
+#> ✔ Adding '.Rproj.user' to '.gitignore'
+#> ✔ Adding '^myPackage\\.Rproj$', '^\\.Rproj\\.user$' to '.Rbuildignore'
+#> ✔ Opening '/home/se87kuhe/my_science/r-dev/myPackage/' in new RStudio session
+#> ✔ Setting active project to '/home/se87kuhe/my_science/teaching/yDiv_building_r_packages'
+```
+
+
+# Set up git(hub)
+
+The previous step will have started another instance of RStudio. There you need to call `library(devtools)` again.
+
+```{r, eval=FALSE}
+library(devtools)
+use_git()
+#> ✔ Setting active project to '/home/se87kuhe/my_science/r-dev/myPackage'
+#> ✔ Initialising Git repo
+#> ✔ Adding '.Rhistory', '.RData' to '.gitignore'
+#> There are 5 uncommitted files:
+#> * '.gitignore'
+#> * '.Rbuildignore'
+#> * 'DESCRIPTION'
+#> * 'myPackage.Rproj'
+#> * 'NAMESPACE'
+#> Is it ok to commit them?
+#> 
+#> 1: Negative
+#> 2: For sure
+#> 3: No way
+#> 
+#> Selection: 2
+#> ✔ Adding files
+#> ✔ Commit with message 'Initial commit'
+#> ● A restart of RStudio is required to activate the Git pane
+#> Restart now?
+#> 
+#> 1: Nope
+#> 2: I agree
+#> 3: Absolutely not
+#> 
+#> Selection: 2
+```
+
+Which would restart RStudio once again to update its interface for git-functionality (i.e., add buttons to access and manage git). Call `library(devtools)` once again.
+
+Now set up a github repository (at [www.github.com](www.github.com)), into which the code will be pushed.
+
+# Set a license
+
+A bit on licenses?
+
+```{r, eval=FALSE}
+use_gpl3_license(name = "me")
+#> ✔ Setting License field in DESCRIPTION to 'GPL-3'
+#> ✔ Writing 'LICENSE.md'
+#> ✔ Adding '^LICENSE\\.md$' to '.Rbuildignore'
+```
+
+
+# Edit `DESCRIPTION`
+
+which fields do exist here and what do they mean?
+
+Some fields are gonna be added automatically with other `usethis` functions.
+
+## Versioning
+
+## Include your OrcID 
