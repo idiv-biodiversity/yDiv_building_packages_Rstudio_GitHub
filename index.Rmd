@@ -6,7 +6,7 @@ output:
 
 # yDiv Course: Building R packages with Rstudio and GitHub
 
-Date & time: Monday, September 23 - Tuesday, September 24, 2018 (5 full days)
+Date & time: Monday, September 23 - Tuesday, September 24, 2018 (2 full days)
 
 Location: Leipzig, Deutscher Platz, German Centre for Integrative Biodiversity Research (iDiv) - Interim III, Metamorphosis, 
 
@@ -17,8 +17,8 @@ Teachers: Alexandre Zizka & Steffen Ehrmann, University of Leipzig/German Centre
 Day 1 - 9:30 - 18:00
 
 * 9:30 Introduction
-* 10:00 Lecture "Main components of an R-package"
-* 11:00 Lecture "Tools and workflow for building R packages"
+* 10:00 Lectures "Main components of an R-package" & "How to build an R package – Tools and workflow"
+* 11:30 Definition of the student projects
 * 12:00 Lunch
 * 13:00 Demo + Exercise 1 & 2: "Package skeleton and data""
 * 14:30 Demo + Exercise 3: "Functions and Documentation""
