@@ -43,25 +43,93 @@ greet(whom = "World")
 #> Hello 'World'!
 ```
 
-## Your turn
-
 However, we want our function to do something more fancy, for instance ...
 
-* plot summary statistics of your data
-* draw boxplots, a scatterplot or a timeline
-* reproduce the analysis you carried out in your manuscript
-* ...
+* plot summary statistics of your data.
+* draw boxplots, a scatterplot or a timeline.
+* build a function that repeats the linear model you built in your paper.
+
+Or, in short, *reproduce the analysis you carried out in your manuscript*. Lets build, as a first example, a function that reports summary statistics of your dataset. We call this function `report_summary`. 
 
 ```{r, eval=FALSE}
-
+use_r(name = "report_summary")
+#> ✔ Setting active project to '/path/to/myPackage'
+#> ● Modify 'R/report_summary.R'
 ```
 
-*Make an example with a bit about what required and what optional arguments are*
+Start developing the function...
 
-*This is the point where the students shall write their own stuff...*
+```{r, eval=FALSE}
+report_summary <- function(){
+  
+}
+```
 
+We know that it must have an argument that allows us to specify the object in which the `data` are stored. We want an argument that allows us to select a particular `measure` as summary statistic, for instance median vs. mean and an option to specify whether values that are not available shall be removed (`na.rm`). Moverover, we want the option to include also some `quantiles`.
 
+```{r, eval=FALSE}
+report_summary <- function(data, measure, na.rm = TRUE, quantiles = NULL){
+  
+}
+```
 
+We see that arguments have been specified differently, `na.rm` and `quantiles` contain a default value, but `data` and `measure` do not. This is a convention for signalling to the user of your package that both, `data` and `measure` are required arguments that will fail the function, if not provided by the user but `na.rm` and `quantiles` are already given.
+
+We put together some code-logic that derives the summary statistics.
+
+```{r, eval=FALSE}
+report_summary <- function(data, measure, na.rm = TRUE, quantiles = NULL){
+  
+  if(measure == "mean"){
+    out <- mean(x = data, na.rm = na.rm)
+  } else if(measure == "median"){
+    out <- median(x = data, na.rm = na.rm)  
+  }
+  out <- round(x = out, digits = 2)
+  
+  return(out)
+}
+```
+
+The `if` construction allows to ask for options that are provided or derived in another part of the function. The value of `na.rm`, which is `TRUE` is provided to both, `mean()` and `median()`, so not available values are removed by default. Next, we build code-logic that computes and adds quantiles to the output.
+
+```{r, eval=FALSE}
+report_summary <- function(data, measure, na.rm = TRUE, quantiles = NULL){
+  
+  if(measure == "mean"){
+    out <- mean(x = data, na.rm = na.rm)
+  } else if(measure == "median"){
+    out <- median(x = data, na.rm = na.rm)  
+  }
+  out <- round(x = out, digits = 2)
+  
+  if(!is.null(quantiles)){
+    out <- c(out, quantile(data, probs = quantiles, na.rm = na.rm))
+  }
+  names(out)[1] <- c(measure)
+  
+  return(out)
+}
+```
+
+Here we see the default value of `quantiles` in action. If the user does not provide any quantiles, the argument is `NULL` and computing quantiles is not triggered. We also use the value of `measure` as name for the newly computed summary statistic.
+
+Functions can be nested in one another, however, this should only be done with care (because it can be hard to debug). Above, the function `quantiles()` is nested in `c()`, which means that `c()` will combine the value of `out` with the result of `quantiles()`.
+
+```{r, eval=FALSE}
+load_all()
+#> Loading myPackage
+report_summary(iris$Sepal.Length, measure = "median")
+#> median 
+#>    5.8 
+report_summary(iris$Sepal.Length, measure = "mean", quantiles = seq(0, 1, 0.2))
+#> mean   0%  20%  40%  60%  80% 100% 
+#> 5.84 4.30 5.00 5.60 6.10 6.52 7.90 
+```
+
+## Your turn
+
+Develop your own function.
 
 # Write a documentation
 
@@ -151,7 +219,7 @@ And build the documentation
 ```{r, eval=FALSE}
 document()
 #> Updating myPackage documentation
-#> Updating roxygen version in /home/se87kuhe/my_science/r-dev/myPackage/DESCRIPTION
+#> Updating roxygen version in /path/to/myPackage/DESCRIPTION
 #> Writing NAMESPACE
 #> Loading myPackage
 #> Writing NAMESPACE
@@ -173,4 +241,4 @@ With `?greet` or `help(greet)` you can view the documentation you just wrote and
 
 ## Your turn
 
-Do the same for your own function.
+Document the function you just developed in the previous chapter.
