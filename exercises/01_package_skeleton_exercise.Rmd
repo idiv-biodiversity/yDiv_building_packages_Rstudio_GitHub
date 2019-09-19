@@ -24,9 +24,9 @@ library(devtools)
 # Create the package
 
 ```{r, eval=FALSE}
-create_package("/home/se87kuhe/my_science/r-dev/myPackage", rstudio = TRUE, open = TRUE)
-#> ✔ Creating '/home/se87kuhe/my_science/r-dev/myPackage/'
-#> ✔ Setting active project to '/home/se87kuhe/my_science/r-dev/myPackage'
+create_package("/path/to/myPackage", rstudio = TRUE, open = TRUE)
+#> ✔ Creating '/path/to/myPackage/'
+#> ✔ Setting active project to '/path/to/myPackage'
 #> ✔ Creating 'R/'
 #> ✔ Writing 'DESCRIPTION'
 #> Package: myPackage
@@ -42,8 +42,8 @@ create_package("/home/se87kuhe/my_science/r-dev/myPackage", rstudio = TRUE, open
 #> ✔ Writing 'myPackage.Rproj'
 #> ✔ Adding '.Rproj.user' to '.gitignore'
 #> ✔ Adding '^myPackage\\.Rproj$', '^\\.Rproj\\.user$' to '.Rbuildignore'
-#> ✔ Opening '/home/se87kuhe/my_science/r-dev/myPackage/' in new RStudio session
-#> ✔ Setting active project to '/home/se87kuhe/my_science/teaching/yDiv_building_r_packages'
+#> ✔ Opening '/path/to/myPackage/' in new RStudio session
+#> ✔ Setting active project to '/path/to/teaching/yDiv_building_r_packages'
 ```
 
 
@@ -54,7 +54,7 @@ The previous step will have started another instance of RStudio. There you need 
 ```{r, eval=FALSE}
 library(devtools)
 use_git()
-#> ✔ Setting active project to '/home/se87kuhe/my_science/r-dev/myPackage'
+#> ✔ Setting active project to '/path/to/myPackage'
 #> ✔ Initialising Git repo
 #> ✔ Adding '.Rhistory', '.RData' to '.gitignore'
 #> There are 5 uncommitted files:
@@ -106,4 +106,4 @@ Some fields are gonna be added automatically with other `usethis` functions.
 
 ## Versioning
 
-## Include your OrcID 
+## Include your ORCiD
