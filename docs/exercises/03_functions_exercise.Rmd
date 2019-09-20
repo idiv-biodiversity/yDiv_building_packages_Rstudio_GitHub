@@ -1,5 +1,6 @@
 ---
 title: "Functions and Documentation"
+date: "`r Sys.Date()`"
 output:
   html_document:
     toc: true
@@ -14,18 +15,20 @@ Initial blabla about functions and their documentation
 
 # Create your first function
 
+## Hello World!
 
 ```{r, eval=FALSE}
 use_r(name = "greet")
-#> ✔ Setting active project to '/home/se87kuhe/my_science/r-dev/myPackage'
+#> ✔ Setting active project to '/path/to/myPackage'
 #> ● Modify 'R/greet.R'
 ```
 
-Insert and save the following code into the file that just opened:
+Insert and save the following code into the file that just opened
 
 ```{r, eval=FALSE}
 greet <- function(whom){
-  message(paste0("Hello '", whom, "'!"))
+  out <- paste0("Hello '", whom, "'!")
+  return(out)
 }
 ```
 
@@ -43,13 +46,17 @@ greet(whom = "World")
 #> Hello 'World'!
 ```
 
+## Report summary 
+
 However, we want our function to do something more fancy, for instance ...
 
-* plot summary statistics of your data.
-* draw boxplots, a scatterplot or a timeline.
-* build a function that repeats the linear model you built in your paper.
+* make the data of your paper available
+* print summary statistics of those data
+* draw graphics such as boxplots, a scatterplot or a timeline
+* build a function that repeats the model you built in your paper
+* ...
 
-Or, in short, *reproduce the analysis you carried out in your manuscript*. Lets build, as a first example, a function that reports summary statistics of your dataset. We call this function `report_summary`. 
+Or, in short, *make the analysis of your paper reproducible*. Lets build, as a first example, a function that reports summary statistics of your dataset. We call this function `report_summary()`.
 
 ```{r, eval=FALSE}
 use_r(name = "report_summary")
@@ -106,7 +113,7 @@ report_summary <- function(data, measure, na.rm = TRUE, quantiles = NULL){
   if(!is.null(quantiles)){
     out <- c(out, quantile(data, probs = quantiles, na.rm = na.rm))
   }
-  names(out)[1] <- c(measure)
+  names(out)[1] <- measure
   
   return(out)
 }
