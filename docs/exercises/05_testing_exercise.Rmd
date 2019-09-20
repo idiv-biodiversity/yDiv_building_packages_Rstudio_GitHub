@@ -177,7 +177,7 @@ test()
 #> Skipped:  0
 ```
 
-Which shows that there were 7 tests that all performed as expected.
+Which shows that there were 8 tests that all performed as expected.
 
 ## Your turn
 
