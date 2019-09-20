@@ -1,0 +1,65 @@
+---
+title: "Tools and workflow for building R packages"
+author: 
+date: "September 23, 2019"
+output: revealjs::revealjs_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## `devtools`
+
+tools for building, documenting and testing packages
+
+[devtools](https://cran.r-project.org/web/packages/devtools)
+
+
+## `usethis`
+
+provides many functions that help setting up a package
+
+provides a "standard way of doing things" that ensures you miss no (crucial) step
+
+[usethis](https://cran.r-project.org/web/packages/usethis/)
+
+
+## `testthat`
+
+specify what you expect your functions to do
+
+write unit-tests (test for similar sets of tasks) that validate your expectations
+
+display test progress visually
+
+[testthat](https://cran.r-project.org/web/packages/testthat/)
+
+
+## `roxygen`
+
+generate R documentation
+
+manage the package namespace
+
+[roxygen2](https://cran.r-project.org/web/packages/roxygen2/)
+
+
+## `checkmate`
+
+make sure that arguments are what they should be
+
+test whether and assert that certain conditions about objects are true
+
+extend the capabilities of `testthat`
+
+[checkmate](https://cran.r-project.org/web/packages/checkmate/)
+
+## `lintr`
+
+check whether your code adheres to a given style/best practice on formatting
+
+(do this only if you have too much time!)
+
+[lintr](https://cran.r-project.org/web/packages/lintr/index.html)

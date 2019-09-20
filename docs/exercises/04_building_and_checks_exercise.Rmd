@@ -1,0 +1,38 @@
+---
+title: "Building and checks"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+---
+
+# Introduction
+
+Initial blabla about building and checks
+
+# Build the package
+
+
+# Check the package
+
+Building seems to have worked! But let's make sure that everything has been set up properly.
+
+```{r, eval=FALSE}
+check()
+#> ── R CMD check results ─────────────────────────────────────────────────────────── myPackage 0.0.0.9000 ────
+#> Duration: 14.2s
+#> 
+#> ❯ checking DESCRIPTION meta-information ... WARNING
+#>   Non-standard license specification:
+#>     What license it uses
+#>   Standardizable: FALSE
+#> 
+#> ❯ checking for missing documentation entries ... WARNING
+#>   Undocumented code objects:
+#>     ‘greet’
+#>   All user-level objects in a package should have documentation entries.
+#>   See chapter ‘Writing R documentation files’ in the ‘Writing R
+#>   Extensions’ manual.
+#> 
+#> 0 errors ✔ | 2 warnings ✖ | 0 notes ✔
+```

@@ -1,4 +1,0 @@
----
-title: "Functions and Documentation"
----
-TBA

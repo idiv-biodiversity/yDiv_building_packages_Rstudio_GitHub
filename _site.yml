@@ -10,19 +10,19 @@ navbar:
   - text: Exercises
     menu:
     - text: 01 - Package skeleton
-      href: 01_package_skeleton_exercise.html
+      href: exercises/01_package_skeleton_exercise.html
     - text: 02 - Data
-      href: 02_data_exercise.html
+      href: exercises/02_data_exercise.html
     - text: 03 - Functions and documentation
-      href: 03_functions_exercise.html
+      href: exercises/03_functions_exercise.html
     - text: 04 - Building and checks
-      href: 04_building_and_checks_exercise.html
+      href: exercises/04_building_and_checks_exercise.html
     - text: 05 - Package testing
-      href: 05_testing_exercise.html
+      href: exercises/05_testing_exercise.html
     - text: 06 - Deployment to CRAN
-      href: 06_deploy_to_cran_exercise.html
+      href: exercises/06_deploy_to_cran_exercise.html
     - text: 07 - Vignettes
-      href: 07_vignettes_exercise.html
+      href: exercises/07_vignettes_exercise.html
   - text: Further reading
     href: further_reading.html
   right:
