@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2019-09-17" />
+<meta name="date" content="2019-09-19" />
 
 <title>Package skeleton</title>
 
@@ -375,7 +375,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Package skeleton</h1>
-<h4 class="date">2019-09-17</h4>
+<h4 class="date">2019-09-19</h4>
 
 </div>
 
@@ -387,7 +387,7 @@ $(document).ready(function () {
 <li><a href="#set-a-license">Set a license</a></li>
 <li><a href="#edit-description">Edit <code>DESCRIPTION</code></a><ul>
 <li><a href="#versioning">Versioning</a></li>
-<li><a href="#include-your-orcid">Include your OrcID</a></li>
+<li><a href="#include-your-orcid">Include your ORCiD</a></li>
 </ul></li>
 </ul>
 </div>
@@ -400,9 +400,9 @@ $(document).ready(function () {
 </div>
 <div id="create-the-package" class="section level1">
 <h1>Create the package</h1>
-<pre class="r"><code>create_package(&quot;/home/se87kuhe/my_science/r-dev/myPackage&quot;, rstudio = TRUE, open = TRUE)
-#&gt; ✔ Creating '/home/se87kuhe/my_science/r-dev/myPackage/'
-#&gt; ✔ Setting active project to '/home/se87kuhe/my_science/r-dev/myPackage'
+<pre class="r"><code>create_package(&quot;/path/to/myPackage&quot;, rstudio = TRUE, open = TRUE)
+#&gt; ✔ Creating '/path/to/myPackage/'
+#&gt; ✔ Setting active project to '/path/to/myPackage'
 #&gt; ✔ Creating 'R/'
 #&gt; ✔ Writing 'DESCRIPTION'
 #&gt; Package: myPackage
@@ -418,15 +418,15 @@ $(document).ready(function () {
 #&gt; ✔ Writing 'myPackage.Rproj'
 #&gt; ✔ Adding '.Rproj.user' to '.gitignore'
 #&gt; ✔ Adding '^myPackage\\.Rproj$', '^\\.Rproj\\.user$' to '.Rbuildignore'
-#&gt; ✔ Opening '/home/se87kuhe/my_science/r-dev/myPackage/' in new RStudio session
-#&gt; ✔ Setting active project to '/home/se87kuhe/my_science/teaching/yDiv_building_r_packages'</code></pre>
+#&gt; ✔ Opening '/path/to/myPackage/' in new RStudio session
+#&gt; ✔ Setting active project to '/path/to/teaching/yDiv_building_r_packages'</code></pre>
 </div>
 <div id="set-up-github" class="section level1">
 <h1>Set up git(hub)</h1>
 <p>The previous step will have started another instance of RStudio. There you need to call <code>library(devtools)</code> again.</p>
 <pre class="r"><code>library(devtools)
 use_git()
-#&gt; ✔ Setting active project to '/home/se87kuhe/my_science/r-dev/myPackage'
+#&gt; ✔ Setting active project to '/path/to/myPackage'
 #&gt; ✔ Initialising Git repo
 #&gt; ✔ Adding '.Rhistory', '.RData' to '.gitignore'
 #&gt; There are 5 uncommitted files:
@@ -471,7 +471,7 @@ use_git()
 <h2>Versioning</h2>
 </div>
 <div id="include-your-orcid" class="section level2">
-<h2>Include your OrcID</h2>
+<h2>Include your ORCiD</h2>
 </div>
 </div>
 

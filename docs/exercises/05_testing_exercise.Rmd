@@ -10,3 +10,69 @@ output:
 # Introduction
 
 Initial blabla about testing
+
+# Include assertions in function
+
+The description of arguments could be misunderstood by some users of your function. In most cases where an argument has been mis-specified, the function would fail. You have probably experienced it yourself that many error messages in R are pretty cumbersome and mostly not easy to understand.
+
+```{r, eval=FALSE}
+report_summary(data = iris, measure = "median")
+#> Error in median.default(x = data, na.rm = na.rm) : need numeric data
+#
+# "what is that supposed to mean, I provided 'numeric data'!?"
+
+report_summary(data = iris$Sepal.Length, measure = "sd")
+#> Error in report_summary(iris$Sepal.Length, measure = "sd") : 
+#>   object 'out' not found
+#
+# "why the hell didn't it find 'out'?"
+```
+
+However, there may be cases where the function results nevertheless in a sensible output, at least at first sight. For those reasons we should make sure that arguments are properly specified, with the help of the R package `checkmate`.
+
+```{r, eval=FALSE}
+report_summary <- function(data, measure, na.rm = TRUE, quantiles = NULL){
+  
+  assertVector(x = data, strict = TRUE)
+  assertChoice(x = measure, choices = c("mean", "median"))
+  assertLogical(x = na.rm, any.missing = FALSE, len = 1)
+  assertNumeric(x = quantiles, lower = 0, upper = 1, any.missing = FALSE, null.ok = TRUE)
+  
+  if(measure == "mean"){
+    out <- mean(x = data, na.rm = na.rm)
+  } else if(measure == "median"){
+    out <- median(x = data, na.rm = na.rm)  
+  }
+  out <- round(x = out, digits = 2)
+  
+  if(!is.null(quantiles)){
+    out <- c(out, quantile(data, probs = quantiles, na.rm = na.rm))
+  }
+  names(out)[1] <- c(measure)
+  
+  return(out)
+}
+```
+
+In the `assert*` functions we define expectations about the arguments. If those are not fulfilled, an informative error message is printed.
+
+The additional effort we put into documenting arguments, those text-fileds that inform the user about the *nature of the argument*, are supposed to co-evolve with the `assert*` functions and reflect in some way the information asserted here. For example, for this function one should mention that `data` must be a single vector or that `measures` can either be `"mean"` or `"median"`.
+
+
+```{r, eval=FALSE}
+report_summary(data = iris, measure = "median")
+#> Error in report_summary(iris, measure = "median") : 
+#>   Assertion on 'data' failed: Must be of type 'vector', not 'data.frame'.
+
+report_summary(data = iris$Sepal.Length, measure = "sd")
+#> Error in report_summary(iris$Sepal.Length, measure = "sd") : 
+#>   Assertion on 'measure' failed: Must be element of set {'mean','median'}, but is 'sd'.
+```
+
+## Your turn
+
+Assert that the arguments of your function are passed correctly into the function.
+
+
+# Set up unit-testing
+

@@ -414,17 +414,67 @@ $(document).ready(function () {
 <p>And run the function</p>
 <pre class="r"><code>greet(whom = &quot;World&quot;)
 #&gt; Hello 'World'!</code></pre>
-<div id="your-turn" class="section level2">
-<h2>Your turn</h2>
 <p>However, we want our function to do something more fancy, for instance …</p>
 <ul>
-<li>plot summary statistics of your data</li>
-<li>draw boxplots, a scatterplot or a timeline</li>
-<li>reproduce the analysis you carried out in your manuscript</li>
-<li>…</li>
+<li>plot summary statistics of your data.</li>
+<li>draw boxplots, a scatterplot or a timeline.</li>
+<li>build a function that repeats the linear model you built in your paper.</li>
 </ul>
-<p><em>Make an example with a bit about what required and what optional arguments are</em></p>
-<p><em>This is the point where the students shall write their own stuff…</em></p>
+<p>Or, in short, <em>reproduce the analysis you carried out in your manuscript</em>. Lets build, as a first example, a function that reports summary statistics of your dataset. We call this function <code>report_summary</code>.</p>
+<pre class="r"><code>use_r(name = &quot;report_summary&quot;)
+#&gt; ✔ Setting active project to '/path/to/myPackage'
+#&gt; ● Modify 'R/report_summary.R'</code></pre>
+<p>Start developing the function…</p>
+<pre class="r"><code>report_summary &lt;- function(){
+  
+}</code></pre>
+<p>We know that it must have an argument that allows us to specify the object in which the <code>data</code> are stored. We want an argument that allows us to select a particular <code>measure</code> as summary statistic, for instance median vs. mean and an option to specify whether values that are not available shall be removed (<code>na.rm</code>). Moverover, we want the option to include also some <code>quantiles</code>.</p>
+<pre class="r"><code>report_summary &lt;- function(data, measure, na.rm = TRUE, quantiles = NULL){
+  
+}</code></pre>
+<p>We see that arguments have been specified differently, <code>na.rm</code> and <code>quantiles</code> contain a default value, but <code>data</code> and <code>measure</code> do not. This is a convention for signalling to the user of your package that both, <code>data</code> and <code>measure</code> are required arguments that will fail the function, if not provided by the user but <code>na.rm</code> and <code>quantiles</code> are already given.</p>
+<p>We put together some code-logic that derives the summary statistics.</p>
+<pre class="r"><code>report_summary &lt;- function(data, measure, na.rm = TRUE, quantiles = NULL){
+  
+  if(measure == &quot;mean&quot;){
+    out &lt;- mean(x = data, na.rm = na.rm)
+  } else if(measure == &quot;median&quot;){
+    out &lt;- median(x = data, na.rm = na.rm)  
+  }
+  out &lt;- round(x = out, digits = 2)
+  
+  return(out)
+}</code></pre>
+<p>The <code>if</code> construction allows to ask for options that are provided or derived in another part of the function. The value of <code>na.rm</code>, which is <code>TRUE</code> is provided to both, <code>mean()</code> and <code>median()</code>, so not available values are removed by default. Next, we build code-logic that computes and adds quantiles to the output.</p>
+<pre class="r"><code>report_summary &lt;- function(data, measure, na.rm = TRUE, quantiles = NULL){
+  
+  if(measure == &quot;mean&quot;){
+    out &lt;- mean(x = data, na.rm = na.rm)
+  } else if(measure == &quot;median&quot;){
+    out &lt;- median(x = data, na.rm = na.rm)  
+  }
+  out &lt;- round(x = out, digits = 2)
+  
+  if(!is.null(quantiles)){
+    out &lt;- c(out, quantile(iris$Sepal.Length, probs = quantiles, na.rm = na.rm))
+  }
+  names(out)[1] &lt;- c(measure)
+  
+  return(out)
+}</code></pre>
+<p>Here we see the default value of <code>quantiles</code> in action. If the user does not provide any quantiles, the argument is <code>NULL</code> and computing quantiles is not triggered. We also use the value of <code>measure</code> as name for the newly computed summary statistic.</p>
+<p>Functions can be nested in one another, however, this should only be done with care (because it can be hard to debug). Above, the function <code>quantiles()</code> is nested in <code>c()</code>, which means that <code>c()</code> will combine the value of <code>out</code> with the result of <code>quantiles()</code>.</p>
+<pre class="r"><code>load_all()
+#&gt; Loading myPackage
+report_summary(iris$Sepal.Length, measure = &quot;median&quot;)
+#&gt; median 
+#&gt;    5.8 
+report_summary(iris$Sepal.Length, measure = &quot;mean&quot;, quantiles = seq(0, 1, 0.2))
+#&gt; mean   0%  20%  40%  60%  80% 100% 
+#&gt; 5.84 4.30 5.00 5.60 6.10 6.52 7.90 </code></pre>
+<div id="your-turn" class="section level2">
+<h2>Your turn</h2>
+<p>Develop your own function.</p>
 </div>
 </div>
 <div id="write-a-documentation" class="section level1">
@@ -506,7 +556,7 @@ export(greet)</code></pre>
 </div>
 <div id="your-turn-1" class="section level2">
 <h2>Your turn</h2>
-<p>Do the same for your own function.</p>
+<p>Document the function you just developed in the previous chapter.</p>
 </div>
 </div>
 

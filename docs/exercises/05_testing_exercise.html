@@ -380,12 +380,68 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
+<li><a href="#include-assertions-in-function">Include assertions in function</a><ul>
+<li><a href="#your-turn">Your turn</a></li>
+</ul></li>
+<li><a href="#set-up-unit-testing">Set up unit-testing</a></li>
 </ul>
 </div>
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>Initial blabla about testing</p>
+</div>
+<div id="include-assertions-in-function" class="section level1">
+<h1>Include assertions in function</h1>
+<p>The description of arguments could be misunderstood by some users of your function. In most cases where an argument has been mis-specified, the function would fail. You have probably experienced it yourself that many error messages in R are pretty cumbersome and mostly not easy to understand.</p>
+<pre class="r"><code>report_summary(data = iris, measure = &quot;median&quot;)
+#&gt; Error in median.default(x = data, na.rm = na.rm) : need numeric data
+#
+# &quot;what is that supposed to mean, I provided 'numeric data'!?&quot;
+
+report_summary(data = iris$Sepal.Length, measure = &quot;sd&quot;)
+#&gt; Error in report_summary(iris$Sepal.Length, measure = &quot;sd&quot;) : 
+#&gt;   object 'out' not found
+#
+# &quot;why the hell didn't it find 'out'?&quot;</code></pre>
+<p>However, there may be cases where the function results nevertheless in a sensible output, at least at first sight. For those reasons we should make sure that arguments are properly specified, with the help of the R package <code>checkmate</code>.</p>
+<pre class="r"><code>report_summary &lt;- function(data, measure, na.rm = TRUE, quantiles = NULL){
+  
+  assertVector(x = data, strict = TRUE)
+  assertChoice(x = measure, choices = c(&quot;mean&quot;, &quot;median&quot;))
+  assertLogical(x = na.rm, any.missing = FALSE, len = 1)
+  assertNumeric(x = quantiles, lower = 0, upper = 1, any.missing = FALSE, null.ok = TRUE)
+  
+  if(measure == &quot;mean&quot;){
+    out &lt;- mean(x = data, na.rm = na.rm)
+  } else if(measure == &quot;median&quot;){
+    out &lt;- median(x = data, na.rm = na.rm)  
+  }
+  out &lt;- round(x = out, digits = 2)
+  
+  if(!is.null(quantiles)){
+    out &lt;- c(out, quantile(data, probs = quantiles, na.rm = na.rm))
+  }
+  names(out)[1] &lt;- c(measure)
+  
+  return(out)
+}</code></pre>
+<p>In the <code>assert*</code> functions we define expectations about the arguments. If those are not fulfilled, an informative error message is printed.</p>
+<p>The additional effort we put into documenting arguments, those text-fileds that inform the user about the <em>nature of the argument</em>, are supposed to co-evolve with the <code>assert*</code> functions and reflect in some way the information asserted here. For example, for this function one should mention that <code>data</code> must be a single vector or that <code>measures</code> can either be <code>&quot;mean&quot;</code> or <code>&quot;median&quot;</code>.</p>
+<pre class="r"><code>report_summary(data = iris, measure = &quot;median&quot;)
+#&gt; Error in report_summary(iris, measure = &quot;median&quot;) : 
+#&gt;   Assertion on 'data' failed: Must be of type 'vector', not 'data.frame'.
+
+report_summary(data = iris$Sepal.Length, measure = &quot;sd&quot;)
+#&gt; Error in report_summary(iris$Sepal.Length, measure = &quot;sd&quot;) : 
+#&gt;   Assertion on 'measure' failed: Must be element of set {'mean','median'}, but is 'sd'.</code></pre>
+<div id="your-turn" class="section level2">
+<h2>Your turn</h2>
+<p>Assert that the arguments of your function are passed correctly into the function.</p>
+</div>
+</div>
+<div id="set-up-unit-testing" class="section level1">
+<h1>Set up unit-testing</h1>
 </div>
 
 
