@@ -10,6 +10,7 @@
 
 
 
+<meta name="date" content="2019-09-20" />
 
 <title>Functions and Documentation</title>
 
@@ -374,6 +375,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Functions and Documentation</h1>
+<h4 class="date">2019-09-20</h4>
 
 </div>
 
@@ -381,6 +383,8 @@ $(document).ready(function () {
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#create-your-first-function">Create your first function</a><ul>
+<li><a href="#hello-world">Hello World!</a></li>
+<li><a href="#report-summary">Report summary</a></li>
 <li><a href="#your-turn">Your turn</a></li>
 </ul></li>
 <li><a href="#write-a-documentation">Write a documentation</a><ul>
@@ -401,10 +405,12 @@ $(document).ready(function () {
 </div>
 <div id="create-your-first-function" class="section level1">
 <h1>Create your first function</h1>
+<div id="hello-world" class="section level2">
+<h2>Hello World!</h2>
 <pre class="r"><code>use_r(name = &quot;greet&quot;)
-#&gt; ✔ Setting active project to '/home/se87kuhe/my_science/r-dev/myPackage'
+#&gt; ✔ Setting active project to '/path/to/myPackage'
 #&gt; ● Modify 'R/greet.R'</code></pre>
-<p>Insert and save the following code into the file that just opened:</p>
+<p>Insert and save the following code into the file that just opened</p>
 <pre class="r"><code>greet &lt;- function(whom){
   message(paste0(&quot;Hello '&quot;, whom, &quot;'!&quot;))
 }</code></pre>
@@ -414,13 +420,18 @@ $(document).ready(function () {
 <p>And run the function</p>
 <pre class="r"><code>greet(whom = &quot;World&quot;)
 #&gt; Hello 'World'!</code></pre>
+</div>
+<div id="report-summary" class="section level2">
+<h2>Report summary</h2>
 <p>However, we want our function to do something more fancy, for instance …</p>
 <ul>
-<li>plot summary statistics of your data.</li>
-<li>draw boxplots, a scatterplot or a timeline.</li>
-<li>build a function that repeats the linear model you built in your paper.</li>
+<li>make the data of your paper available</li>
+<li>print summary statistics of those data</li>
+<li>draw graphics such as boxplots, a scatterplot or a timeline</li>
+<li>build a function that repeats the model you built in your paper</li>
+<li>…</li>
 </ul>
-<p>Or, in short, <em>reproduce the analysis you carried out in your manuscript</em>. Lets build, as a first example, a function that reports summary statistics of your dataset. We call this function <code>report_summary</code>.</p>
+<p>Or, in short, <em>make the analysis of your paper reproducible</em>. Lets build, as a first example, a function that reports summary statistics of your dataset. We call this function <code>report_summary()</code>.</p>
 <pre class="r"><code>use_r(name = &quot;report_summary&quot;)
 #&gt; ✔ Setting active project to '/path/to/myPackage'
 #&gt; ● Modify 'R/report_summary.R'</code></pre>
@@ -456,9 +467,9 @@ $(document).ready(function () {
   out &lt;- round(x = out, digits = 2)
   
   if(!is.null(quantiles)){
-    out &lt;- c(out, quantile(iris$Sepal.Length, probs = quantiles, na.rm = na.rm))
+    out &lt;- c(out, quantile(data, probs = quantiles, na.rm = na.rm))
   }
-  names(out)[1] &lt;- c(measure)
+  names(out)[1] &lt;- measure
   
   return(out)
 }</code></pre>
@@ -472,6 +483,7 @@ report_summary(iris$Sepal.Length, measure = &quot;median&quot;)
 report_summary(iris$Sepal.Length, measure = &quot;mean&quot;, quantiles = seq(0, 1, 0.2))
 #&gt; mean   0%  20%  40%  60%  80% 100% 
 #&gt; 5.84 4.30 5.00 5.60 6.10 6.52 7.90 </code></pre>
+</div>
 <div id="your-turn" class="section level2">
 <h2>Your turn</h2>
 <p>Develop your own function.</p>
@@ -542,7 +554,7 @@ greet &lt;- function(whom){
 <p>And build the documentation</p>
 <pre class="r"><code>document()
 #&gt; Updating myPackage documentation
-#&gt; Updating roxygen version in /home/se87kuhe/my_science/r-dev/myPackage/DESCRIPTION
+#&gt; Updating roxygen version in /path/to/myPackage/DESCRIPTION
 #&gt; Writing NAMESPACE
 #&gt; Loading myPackage
 #&gt; Writing NAMESPACE

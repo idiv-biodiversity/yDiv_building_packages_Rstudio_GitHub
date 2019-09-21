@@ -10,6 +10,7 @@
 
 
 
+<meta name="date" content="2019-09-20" />
 
 <title>Testing</title>
 
@@ -374,6 +375,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Testing</h1>
+<h4 class="date">2019-09-20</h4>
 
 </div>
 
@@ -383,13 +385,15 @@ $(document).ready(function () {
 <li><a href="#include-assertions-in-function">Include assertions in function</a><ul>
 <li><a href="#your-turn">Your turn</a></li>
 </ul></li>
-<li><a href="#set-up-unit-testing">Set up unit-testing</a></li>
+<li><a href="#set-up-unit-testing">Set up unit-testing</a><ul>
+<li><a href="#your-turn-1">Your turn</a></li>
+</ul></li>
 </ul>
 </div>
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>Initial blabla about testing</p>
+<p>We have learned from the previous exercise how to run automated checks for when the package is built. Those check ensure that the package is a viable package, with respect to metadata and how the package is set up. However, they do not ensure out of the box that the functions in this package are unambiguous in their arguments and that the output is what is expected under all circumstances.</p>
 </div>
 <div id="include-assertions-in-function" class="section level1">
 <h1>Include assertions in function</h1>
@@ -428,7 +432,8 @@ report_summary(data = iris$Sepal.Length, measure = &quot;sd&quot;)
 }</code></pre>
 <p>In the <code>assert*</code> functions we define expectations about the arguments. If those are not fulfilled, an informative error message is printed.</p>
 <p>The additional effort we put into documenting arguments, those text-fileds that inform the user about the <em>nature of the argument</em>, are supposed to co-evolve with the <code>assert*</code> functions and reflect in some way the information asserted here. For example, for this function one should mention that <code>data</code> must be a single vector or that <code>measures</code> can either be <code>&quot;mean&quot;</code> or <code>&quot;median&quot;</code>.</p>
-<pre class="r"><code>report_summary(data = iris, measure = &quot;median&quot;)
+<pre class="r"><code>load_all()
+report_summary(data = iris, measure = &quot;median&quot;)
 #&gt; Error in report_summary(iris, measure = &quot;median&quot;) : 
 #&gt;   Assertion on 'data' failed: Must be of type 'vector', not 'data.frame'.
 
@@ -442,6 +447,75 @@ report_summary(data = iris$Sepal.Length, measure = &quot;sd&quot;)
 </div>
 <div id="set-up-unit-testing" class="section level1">
 <h1>Set up unit-testing</h1>
+<p>When writing functions you would test them all the time informally, for instance, by setting <code>measures = &quot;mean&quot;</code>, running the if construction and checking whether <code>out</code> is what you have expected.</p>
+<p>Those tests can be carried out formally by writing unit-tests. First, we set up the testing framework which is placed in the folder <code>tests</code> at the root directory of the package.</p>
+<pre class="r"><code>use_testthat()
+#&gt; ✔ Adding 'testthat' to Suggests field in DESCRIPTION
+#&gt; ✔ Creating 'tests/testthat/'
+#&gt; ✔ Writing 'tests/testthat.R'
+#&gt; ● Call `use_test()` to initialize a basic test file and open it for editing.</code></pre>
+<p>We would then create tests for each specific function via <code>use_test()</code>, as suggested by <code>use_testthat()</code>.</p>
+<pre class="r"><code>use_test(&quot;greet&quot;)
+#&gt; ✔ Increasing 'testthat' version to '&gt;= 2.1.0' in DESCRIPTION
+#&gt; ✔ Writing 'tests/testthat/test-greet.R'
+#&gt; ● Modify 'tests/testthat/test-greet.R'</code></pre>
+<p>This creates and opens the file <code>test_greet.R</code>, into which we would write test. Tests are organised into units of similar functionality. Each test requires that particular objects are provided to the function to test and to compare the output to an expectation.</p>
+<p>For instance, the first test that is initiated in <code>test-greet.R</code> by default is</p>
+<pre class="r"><code>test_that(&quot;multiplication works&quot;, {
+  expect_equal(object = 2 * 2, expected = 4)
+})</code></pre>
+<p>The <code>testthat</code> package already provides a range of <code>expect_*</code> functions and that is extended by the functions in the <code>checkmate</code> package. For the <code>greet()</code> functions we may want to test that the output is really a character string of length one that includes the word <code>Hello</code>. We would replace the recently present test with:</p>
+<pre class="r"><code>test_that(&quot;output is a character string&quot;, {
+  out &lt;- greet(whom = &quot;World&quot;)
+  expect_character(x = out, len = 1, pattern = &quot;Hello.*!&quot;)
+})</code></pre>
+<p>For the <code>report_summary()</code> function we’d also have to define a range of tests</p>
+<pre class="r"><code>use_test(&quot;report_summary&quot;)
+#&gt; ✔ Writing 'tests/testthat/test-report_summary.R'
+#&gt; ● Modify 'tests/testthat/test-report_summary.R'</code></pre>
+<p>Here we have more things to test. First of all, we need to make sure that the output is in fact what would be expected from the function. We have two “units”, first that the output is in fact a numeric vector and secondly that the correct quantiles are computed.</p>
+<pre class="r"><code>test_that(&quot;output is numeric vector&quot;, {
+  data(iris)
+  out &lt;- report_summary(iris$Sepal.Length, measure = &quot;mean&quot;)
+  expect_numeric(x = out, any.missing = FALSE)
+})
+
+test_that(&quot;the correct quantiles are computed&quot;, {
+  data(iris)
+  quantiles &lt;- c(0.2, 0.5, 0.75)
+  out &lt;- report_summary(iris$Sepal.Length, measure = &quot;mean&quot;, quantiles = quantiles)
+  expect_names(x = names(out), must.include = c(&quot;mean&quot;, paste0(quantiles*100, &quot;%&quot;)))
+})</code></pre>
+<p>Third, we would make sure that deliberately mis-specifying the arguments actually gives an error message.</p>
+<pre class="r"><code>test_that(&quot;errors when false input&quot;, {
+  # test data.frame as input
+  expect_error(object = report_summary(iris, measure = &quot;mean&quot;))
+  # test false measure
+  expect_error(object = report_summary(iris$Sepal.Length, measure = &quot;sd&quot;))
+  # test false na.rm value
+  expect_error(object = report_summary(iris$Sepal.Length, measure = &quot;mean&quot;, na.rm = &quot;bla&quot;))
+  # test false quantiles
+  expect_error(object = report_summary(iris$Sepal.Length, measure = &quot;mean&quot;, quantiles = &quot;bla&quot;))
+})</code></pre>
+<p>We do not need to run those tests in the console, even though we could. They would ideally not show any output, because those functions do either complain about an unexpected behaviour, or do not output anything at all.</p>
+<p>We run the tests simply via</p>
+<pre class="r"><code>test()
+#&gt; Loading myPackage
+#&gt; Testing myPackage
+#&gt; ✔ |  OK F W S | Context
+#&gt; ✔ |   1       | greet
+#&gt; ✔ |   7       | report_summary
+#&gt; 
+#&gt; ══ Results ═════════════════════════════════════════════════════════════════════════════════════════════════
+#&gt; OK:       8
+#&gt; Failed:   0
+#&gt; Warnings: 0
+#&gt; Skipped:  0</code></pre>
+<p>Which shows that there were 7 tests that all performed as expected.</p>
+<div id="your-turn-1" class="section level2">
+<h2>Your turn</h2>
+<p>Write tests that make sure you function overall behaves as expected and write some tests that ensure that deliberately false values actually give error messages.</p>
+</div>
 </div>
 
 

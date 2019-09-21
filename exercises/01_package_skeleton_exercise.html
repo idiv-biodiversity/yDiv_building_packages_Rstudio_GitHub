@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2019-09-19" />
+<meta name="date" content="2019-09-20" />
 
 <title>Package skeleton</title>
 
@@ -375,7 +375,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Package skeleton</h1>
-<h4 class="date">2019-09-19</h4>
+<h4 class="date">2019-09-20</h4>
 
 </div>
 
@@ -386,6 +386,7 @@ $(document).ready(function () {
 <li><a href="#set-up-github">Set up git(hub)</a></li>
 <li><a href="#set-a-license">Set a license</a></li>
 <li><a href="#edit-description">Edit <code>DESCRIPTION</code></a><ul>
+<li><a href="#dependencies">Dependencies</a></li>
 <li><a href="#versioning">Versioning</a></li>
 <li><a href="#include-your-orcid">Include your ORCiD</a></li>
 </ul></li>
@@ -394,13 +395,16 @@ $(document).ready(function () {
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>Initial blabla about package skeleton</p>
+<p>In this course we try to have each step be based on an R function that carries out the step. For many steps there are alternative ways, including to click on some button. This is typical for R, but also makes it at times cumbersome to find the right way to do something, there is often no “right way”.</p>
+<p>However, there is a “more reproducable way”, for example when using an R function instead of clicking on buttons. The buttons may be at different locations in the specific IDE (Integrated development environment, here RStudio) but the function works in any instance of R that has the respective package installed. To provide fully transparent and reproducilbe documentation, you can write down all those steps you took to make the package via R functions, in a document just like this.</p>
+<p>THE R package that assistes in package development is <code>devtools</code> (in combination with <code>usethis</code> that got installed automatically with <code>devtools</code>). To start building a package, we thus first load this package.</p>
 <pre class="r"><code>library(devtools)</code></pre>
 <pre><code>## Loading required package: usethis</code></pre>
 </div>
 <div id="create-the-package" class="section level1">
 <h1>Create the package</h1>
-<pre class="r"><code>create_package(&quot;/path/to/myPackage&quot;, rstudio = TRUE, open = TRUE)
+<p>You can start setting up a project via clicking on <em>File &gt; New Project &gt; New Directory &gt; R package</em> and fill in information in the dialog that opens. However, you can also simply use the function <code>create_package()</code>, provide it with the path where you want to package to be stored and let it set up everything. Realistically, using the command line may even be faster when you are not used to it (yet).</p>
+<pre class="r"><code>create_package(path = &quot;/path/to/myPackage&quot;)
 #&gt; ✔ Creating '/path/to/myPackage/'
 #&gt; ✔ Setting active project to '/path/to/myPackage'
 #&gt; ✔ Creating 'R/'
@@ -420,10 +424,11 @@ $(document).ready(function () {
 #&gt; ✔ Adding '^myPackage\\.Rproj$', '^\\.Rproj\\.user$' to '.Rbuildignore'
 #&gt; ✔ Opening '/path/to/myPackage/' in new RStudio session
 #&gt; ✔ Setting active project to '/path/to/teaching/yDiv_building_r_packages'</code></pre>
+<p>The grey text is printed to the console to inform you about the progress. After it has been successful, a new RStudio session will be started, in which you would commence package development. This is it already, the most basic package skeleton has been created at <code>/path/to/myPackage/</code>.</p>
 </div>
 <div id="set-up-github" class="section level1">
 <h1>Set up git(hub)</h1>
-<p>The previous step will have started another instance of RStudio. There you need to call <code>library(devtools)</code> again.</p>
+<p>As a next step we already set up git, to trace the development of our package and to be able to revert to a previous state if we have included a grave mistake that can’t be corrected easily.</p>
 <pre class="r"><code>library(devtools)
 use_git()
 #&gt; ✔ Setting active project to '/path/to/myPackage'
@@ -452,12 +457,16 @@ use_git()
 #&gt; 3: Absolutely not
 #&gt; 
 #&gt; Selection: 2</code></pre>
-<p>Which would restart RStudio once again to update its interface for git-functionality (i.e., add buttons to access and manage git). Call <code>library(devtools)</code> once again.</p>
-<p>Now set up a github repository (at <a href="www.github.com">www.github.com</a>), into which the code will be pushed.</p>
+<p>Which would restart RStudio once again to update its interface for git-functionality (i.e., add buttons to access and manage git). Call <code>library(devtools)</code> once again. Configure your <code>git</code> data by entering the following information into the Terminal, not the Console, into which you have entered the R code so far. The Terminal is in RStudio right next to the Console Tab. The Email address must be the same as the one you used to register your github account.</p>
+<pre class="r"><code>git config --global user.name &quot;YOUR FULL NAME&quot;
+git config --global user.email &quot;YOUR EMAIL ADDRESS&quot;</code></pre>
+<p>Now set up a github repository (at <a href="www.github.com">www.github.com</a>), into which the code will be pushed and tell R about it via the following code (again in the Terminal).</p>
+<pre class="r"><code>git remote add origin git@github.com:&quot;YOUR USERNAME/myPackage&quot;.git
+git push -u origin master</code></pre>
 </div>
 <div id="set-a-license" class="section level1">
 <h1>Set a license</h1>
-<p>A bit on licenses?</p>
+<p>Chose the license you want to use for this package and supply it with one of the <code>use_*_license()</code> functions.</p>
 <pre class="r"><code>use_gpl3_license(name = &quot;me&quot;)
 #&gt; ✔ Setting License field in DESCRIPTION to 'GPL-3'
 #&gt; ✔ Writing 'LICENSE.md'
@@ -465,13 +474,60 @@ use_git()
 </div>
 <div id="edit-description" class="section level1">
 <h1>Edit <code>DESCRIPTION</code></h1>
-<p>which fields do exist here and what do they mean?</p>
-<p>Some fields are gonna be added automatically with other <code>usethis</code> functions.</p>
+<p>The <code>DESCRIPTION</code> gather all information that crucially important as metadata to your package. It contains, amongst others, title and description, dependencies, the package version and author information. The version created by <code>create_package()</code> is relatively self-explanatory.</p>
+<pre class="r"><code>Package: myPackage
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = &quot;First&quot;,
+           family = &quot;Last&quot;,
+           role = c(&quot;aut&quot;, &quot;cre&quot;),
+           email = &quot;first.last@example.com&quot;,
+           comment = c(ORCID = &quot;YOUR-ORCID-ID&quot;))
+Description: What the package does (one paragraph).
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1</code></pre>
+<p>You have to add some fields yourself, for example the url of the package and where bugs can be reported</p>
+<pre class="r"><code>URL: https://github.com/&quot;YOUR USERNAME/myPackage&quot;
+BugReports: https://github.com/&quot;YOUR USERNAME/myPackage&quot;/issues</code></pre>
+<div id="dependencies" class="section level2">
+<h2>Dependencies</h2>
+<p>Some fields are gonna be added automatically with other <code>usethis</code> functions. For example, most packages will require functions from other packages that are not part of base R. Let’s say you want to do some data wrangling with <code>dplyr</code>, want to use <code>tibble</code> instead of <code>data.frame</code> and intend to describe the idea of your package in a vignette names <code>overview</code>. You would include those via.</p>
+<pre class="r"><code>use_package(&quot;dplyr&quot;)
+#&gt; ✔ Setting active project to '/path/to/myPackage'
+#&gt; ✔ Adding 'dplyr' to Imports field in DESCRIPTION
+#&gt; ● Refer to functions with `dplyr::fun()`
+use_package(&quot;tibble&quot;)
+#&gt; ✔ Adding 'tibble' to Imports field in DESCRIPTION
+#&gt; ● Refer to functions with `tibble::fun()`
+usethis::use_vignette(name = &quot;overview&quot;)
+#&gt; ✔ Adding 'knitr' to Suggests field in DESCRIPTION
+#&gt; ✔ Setting VignetteBuilder field in DESCRIPTION to 'knitr'
+#&gt; ✔ Adding 'inst/doc' to '.gitignore'
+#&gt; ✔ Creating 'vignettes/'
+#&gt; ✔ Adding '*.html', '*.R' to 'vignettes/.gitignore'
+#&gt; ✔ Adding 'rmarkdown' to Suggests field in DESCRIPTION
+#&gt; ✔ Writing 'vignettes/overview.Rmd'
+#&gt; ● Modify 'vignettes/overview.Rmd'</code></pre>
+<p>This would add the following to <code>DESCRIPTION</code>, right after <code>RoxygenNote: 6.1.1</code>.</p>
+<pre class="r"><code>Imports: 
+    dplyr,
+    tibble
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr</code></pre>
+<p>The packages listed in <code>Imports:</code> have to be installed on the users system and the packages listed in <code>Suggests:</code> are not required, but optionally used at some point in your package. <code>knitr</code> and <code>rmarkdonw</code> will, for example, be used when you build the vignette, but the user does not have to do that on their machine.</p>
+</div>
 <div id="versioning" class="section level2">
 <h2>Versioning</h2>
+<p><code>create_package()</code> has already assigned a version to your package. Whenever you include additions, you should increase that version number. For now it is sufficient that each new feature increases the number in your <code>DESCRIPTION</code> by one, for example from <code>0.0.0.9000</code> to <code>0.0.0.9001</code>. For more detailed information on how to handle versioning, check out <a href="https://r-pkgs.org/description.html#version">this</a>.</p>
 </div>
 <div id="include-your-orcid" class="section level2">
 <h2>Include your ORCiD</h2>
+<p><code>create_package()</code> has already included a field in <code>DESCRIPTION</code> for your ORCiD identifier. This is recently a comment to your name. Make use of it for all authors!</p>
 </div>
 </div>
 
