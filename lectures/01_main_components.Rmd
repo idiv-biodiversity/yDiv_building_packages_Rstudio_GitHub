@@ -1,68 +1,451 @@
 ---
-title: "Main components of an R-package"
-author: 
-date: "September 23, 2019"
-output: revealjs::revealjs_presentation
+output: 
+  revealjs::revealjs_presentation:
+    transition: "none"
+    font_adjustment: +20
 ---
 
+## Main components of an R-package
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+<br>
+A cartoon of an R package
+
+
+## Why R is so useful
+<style>
+    .reveal .slides {
+        text-align: left;
+    }
+    .reveal .slides section>* {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .reveal .slides section .slideContent{
+        font-size: 62pt;
+    }
+  }
+</style>
+
+
+<br>
+<br>
+Easy to use
+
+<br>
+Easy to get help
+
+<br>
+A lot of work has been done already
+
+## Why R is so useful
+
+<br>
+<br>
+Easy to use
+
+<br>
+Easy to get help
+
+<br>
+**A lot of work has been done already**
+
+
+## What is an R package (for the user)
+
+<br>
+A set of functions or data!
+<br>
+```{r}
+library(raster)
+
+raster()
 ```
 
-## Why an R package
+## Famous packages
 
-https://adv-r.hadley.nz/functions.html
-https://r4ds.had.co.nz/functions.html#introduction-12
+```{r, out.width = "1000in", echo = FALSE}
 
-## Before starting
-
-Does a package of that kind already exist?
-
-What is different about yours? What is the usecase and unique feature of yours?
-
-Are there any conventions/standards you could adapt? Is there a framework into which you want/should embed your package?
-
-How shall it be called? (good luck with that...)
-
-## Starting
-
-Set up an R-Studio Project (highly recommended): `create_package()`
-
-check out `Alt + shift + K` 
-
-## Package structure I
-
-`R/` 
-
-`NAMESPACE`
-
-`DIRECTORY`
-
-## Package structure II
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/Popular-R-Packages-2.png")
+```
 
 
+## Famous packages in ecology
 
-package from a creators point of view/on github, with all the possible directories and files; perhaps simply use a couple of screenshots
+<br>
+More than XXX packges on CRAN!
 
-## What is a function?
+<br>
+vegan
 
-functions, like variables are objects in R
+lme, INLA
 
-comprises a script and summarises a couple of related usecases that can be acccessed with arguments.
+raster, sp
 
-thus, functions are an interface between a certain algorithm and the outside environment (humnans, other software)
+ape, phytools
 
-## What is a namespace?
+## The purpose of R packages
 
-this is an important, yet perhaps confusing topic at first
+<br>
+Distribute code
 
-it is a wraper around the names of your packages' functions, so to speak
+Distribute data
 
-the namespace informs the R ecosystem about which functions your package provides (*exports*) and which functions it utilizes (*imports*)
+Organize analyses
 
-it helps to avoid conflicts, in case functions names are or become duplicated
+Collaborate on a project
 
-## Package description
 
+## Where packages live
+
+<br>
+<br>
+1. The Comprehensive R Archive Network
+
+<br>
+2. GitHub
+
+## 1. The Comprehensive R Archive Network (CRAN)
+
+```{r, out.width = "1000in", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/cran_full.png")
+```
+
+
+## 1. The Comprehensive R Archive Network (CRAN)
+
+```{r, out.width = "1000in", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/CRAN_packages.png")
+```
+
+
+## We have all done it
+
+<br>
+<br>
+```{r, eval = FALSE}
+install.packages("ggplot2")
+```
+
+## 2. GitHub
+```{r, out.width = "1000in", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/github_intro.png")
+```
+
+## 2. GitHub
+```{r, out.width = "1000in", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/github_package.png")
+```
+
+## Also easy
+<br>
+<br>
+```{r, eval = FALSE}
+library(devtools)
+install_github("azizka/bromeliad")
+```
+
+## Developing an R package
+
+## An example from from the Bromeliaceae
+
+```{r, out.height = "800pt", out.width = "800pt", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/pineapple.jpg")
+```
+
+## An example from from the Bromeliaceae
+<br>
+<br>
+```{r, out.width = "1000in", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/bromeliad_manuscript.png")
+```
+
+## An example from from the Bromeliaceae
+
+```{r, message = FALSE, warnings = FALSE}
+library(bromeliad)
+
+data("taxonomy_traits")
+
+taxonomy_traits
+```
+
+## An example from from the Bromeliaceae
+
+```{r, message = FALSE, warnings = FALSE}
+data("all_ranges")
+
+all_ranges
+
+```
+
+## An example from from the Bromeliaceae
+```{r, message = FALSE, warnings = FALSE}
+aechmea <- get_range(genus = "Aechmea")
+
+#map_richness(aechmea)
+```
+
+
+## An example from from the Bromeliaceae
+
+```{r, message = FALSE, warnings = FALSE}
+crvu <- get_range(assessment = c("CR", "VU"))
+
+#map_richness(crvu)
+```
+
+
+
+
+<!-- ## Before starting -->
+
+<!-- <br> -->
+<!-- What is the purpose of your package? -->
+
+<!-- Does a similar package already exist? -->
+
+<!-- What is different/better about yours? -->
+
+<!-- Are there any standards you could adapt? Is there a framework into which you should embed your package? -->
+
+## What is an R package (for a developer)
+
+<br>
+<br>
+A folder...
+
+...with standardized structure and names
+
+
+## Package structure
+<br>
+`DESCRIPTION`
+
+`README.md`
+
+`NAMSPACE`
+
+`R/`
+
+`man/`
+
+`data/`
+
+<font color="grey">`inst/, vignettes/, tests/ .Rbuildignore,`</font> 
+<font color="grey">`.gitignore, cran-comments.md, NEWS.md`</font>
+
+
+## Package structure
+
+```{r, out.width = "1000pt", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/package_folder.png")
+```
+
+
+
+## DESCRIPTION
+
+A text file giving basic and standradized information on the package
+
+## DESCRIPTION
+
+A screenshot of a description file, go through it and explain what to add
+
+## README.md
+<br>
+A free description of the package for github
+
+Version number
+
+What does the package do
+
+How to contribute
+
+Citation
+
+## README.md
+
+A Picture of a markdown readme
+
+## README.md
+
+A picture of a readme on github
+
+## NAMESPACE
+
+A file with the names of all functions that your package uses and provides. 
+
+## NAMESPACE
+
+A picture of an old namespace file
+
+## data/
+<br>
+The datasets distributed with the package. Can be example data or the purpose of the package.
+
+## data/
+<br>
+Can be any object that can be loaded into R.
+
+Tables, shape files
+
+## data/
+
+```{r,out.width = "1000pt", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/data_folder.png")
+```
+
+
+## R/
+
+The code (functions) provided via your package.
+
+## Functions
+<br>
+<br>
+In packages code is distributed as functions.
+<br>
+Functions are objects just as variables.
+
+## Functions
+```{r, eval = F}
+function_name(x, options)
+```
+
+```{r}
+x <- c(2,3,5,6)
+
+mean(x)
+```
+
+## For example
+```{r}
+sum_numbers <- function(x, y){
+  out <- x + y
+  return(out)
+ }
+
+sum_numbers(x = 2, y = 2)
+
+sum_numbers(x = 1000, y = 1)
+```
+
+
+## For example
+```{r}
+smiley <- function(happy){
+  if(happy){
+    print(":-)")
+  }else{
+    print(":-(")
+  }
+}
+
+smiley(happy = TRUE)
+
+smiley(happy = FALSE)
+```
+
+## R/
+```{r, out.width = "1000pt", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/R_folder.png")
+```
+
+
+
+## R/
+```{r, out.width = "1000pt", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/function_file.png")
+```
+
+## man/
+<br>
+<br>
+The documentation of your code. One file per function.
+
+## man/
+```{r, out.width = "1000pt", echo = FALSE}
+
+?get_range
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/function_help.png")
+```
+
+
+
+## man/
+```{r, out.width = "1000pt", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/man_folder.png")
+```
+
+## man/
+```{r, out.width = "1000pt", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/man_file.png")
+```
+
+## man/ 
+```{r, out.width = "1000pt", echo = FALSE}
+
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/roxygen2_file.png")
+```
+
+
+## The rest
+
+<br>
+`inst/` - non-text files (e.g. pdfs)
+
+`vignettes/` - Tutorials and documentation
+
+`test` - automated tests of the code
+
+`.gitignore` - files git should ignore
+
+`.Rbuildignore` - files R CMD build should ignore
+
+
+## Build and check
+
+
+## Summary
+
+<br>
+An R package is a set of standardized folders
+
+`Description` - basic information
+
+`Readme` - basic information
+
+`data/` -  datasets of the package
+
+`R/` - the functions of the package
+
+`man/` - the documentation of the code
+
+others - to facilitate the developement progress and provide additional information
+
+## How to develope an R-package
+<br>
+<br>
+Rstudio, Github, Git, devtools, roxygen2
+
+<br>
+Rstudio workflow. Next lecture!
+
+## Your project!
+<br>
+<br>
+Chose a dataset from your research that you want to provide as an R package, and one or two basic functions to use it.
 

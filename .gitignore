@@ -26,3 +26,5 @@ vignettes/*.pdf
 rsconnect/
 .Rproj.user
 Registration Building R packages.xlsx
+
+/lectures/pictures/
