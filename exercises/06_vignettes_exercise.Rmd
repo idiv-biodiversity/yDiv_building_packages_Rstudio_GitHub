@@ -1,5 +1,5 @@
 ---
-title: "Vignettes"
+title: "Exercise 6 - Vignettes"
 output:
   html_document:
     toc: true

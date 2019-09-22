@@ -1,6 +1,5 @@
 ---
-title: "Package skeleton"
-date: "`r Sys.Date()`"
+title: "Exercise 1 - Package skeleton"
 output:
   html_document:
     toc: true

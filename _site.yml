@@ -19,10 +19,11 @@ navbar:
       href: exercises/04_building_and_checks_exercise.html
     - text: 05 - Package testing
       href: exercises/05_testing_exercise.html
-    - text: 06 - Deployment to CRAN
-      href: exercises/06_deploy_to_cran_exercise.html
-    - text: 07 - Vignettes
-      href: exercises/07_vignettes_exercise.html
+    - text: 06 - Vignettes
+      href: exercises/06_vignettes_exercise.html
+    - text: 07 - Release
+      href: exercises/07_release_exercise.html
+
   - text: Further reading
     href: further_reading.html
   right:
