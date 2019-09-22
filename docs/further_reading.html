@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="" />
@@ -248,18 +249,6 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -350,7 +339,7 @@ $(document).ready(function () {
 <p>A list of links and literature giving more background on programming and package developement in R.</p>
 <div id="official-guides" class="section level1">
 <h1>Official guides</h1>
-<p>The official R website (CRAN) provides a couple of <a href="https://cran.r-project.org/manuals.html">manuals</a> and especially <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html">Writing R Extensions</a> is of importance when making a new package. Many of the standards defined there are already implemented in R Studio but you will most certainly encounter one or the other issue that requires you to study (a part of) this guide.</p>
+<p>The official R website (CRAN) provides a couple of <a href="https://cran.r-project.org/manuals.html">manuals</a> and especially <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html">Writing R Extensions</a> is of importance when making a new package. Many of the standards defined there are already implemented in RStudio but you will most certainly encounter one or the other issue that requires you to study (a part of) this guide.</p>
 <div id="bioconductor" class="section level2">
 <h2>Bioconductor</h2>
 <p>In case you are working in the life-sciences (with genomic data) you may be interested to check out <a href="https://www.bioconductor.org/">bioconductor</a>. They define a range of standards that are important for software that deals with those topics.</p>
@@ -361,7 +350,7 @@ $(document).ready(function () {
 <p><a href="https://adv-r.hadley.nz/index.html">Advanced R</a> by Hadley Wickham goes deep(er) into R programming, explaining topics that help mostly intermediate R programmers.</p>
 <div id="s4" class="section level2">
 <h2>S4</h2>
-<p><em>A (Not So) Short Introduction to S4</em> is a lengthy document outlining the concept of "S4". Already the introduction gives some good insights into "why object oriented programming (in R)?" <a href="https://cran.r-project.org/doc/contrib/Genolini-S4tutorialV0-5en.pdf" class="uri">https://cran.r-project.org/doc/contrib/Genolini-S4tutorialV0-5en.pdf</a></p>
+<p><em>A (Not So) Short Introduction to S4</em> is a lengthy document outlining the concept of &quot;S4&quot;. Already the introduction gives some good insights into &quot;why object oriented programming (in R)?&quot; <a href="https://cran.r-project.org/doc/contrib/Genolini-S4tutorialV0-5en.pdf" class="uri">https://cran.r-project.org/doc/contrib/Genolini-S4tutorialV0-5en.pdf</a></p>
 </div>
 </div>
 <div id="r-consortium" class="section level1">
@@ -385,7 +374,7 @@ $(document).ready(function () {
 </div>
 <div id="presentations" class="section level2">
 <h2>Presentations</h2>
-<p>Also your <a href="https://bookdown.org/yihui/rmarkdown/presentations.html">presentations</a> can be compiled with R-Studio (the presentation of this course have been made with revealjs).</p>
+<p>Also your <a href="https://bookdown.org/yihui/rmarkdown/presentations.html">presentations</a> can be compiled with R-Studio (the presentations of this course have been made with revealjs).</p>
 <p>PS: For the sake of workflow-interoperability, you can also compile the R markdown documents you will be writing from now on to *.docx, to send your manuscript for instance to your supervisor(s) or project partners.</p>
 </div>
 </div>
@@ -407,6 +396,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
