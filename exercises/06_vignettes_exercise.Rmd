@@ -9,3 +9,15 @@ output:
 # Introduction
 
 Initial blabla about vignettes
+
+# Markdown
+
+# Code snippets
+
+# Exercises
+
+## 1. Vignette purpose and structure
+
+## 2. Text and code
+
+## 3. Done
