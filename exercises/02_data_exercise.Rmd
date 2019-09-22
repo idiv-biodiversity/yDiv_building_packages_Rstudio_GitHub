@@ -45,7 +45,7 @@ save(plt_trait, file = "data/plant_traits.rda")
 ```
 
 ## 4. Data documentation
-Adding metadata and more details to the documentation of your dataset it the most important step. We will create the documentation using roxygen2. Datasets are best documented in an R file in the code directory named 'data'. You cans ee an example (Rather short) documentation from the bromeliad package below. Write the documentation for your dataset and make sure all necessary information is included. Then save it as a .R file in the "R/" folder.
+Adding metadata and more details to the documentation of your dataset it the most important step. We will create the documentation using roxygen2. Datasets are best documented in an R file in the code directory named 'data'. You can see an example (rather short) documentation from the `bromeliad` package below. Write the documentation for your dataset and make sure all necessary information is included. Then save it as a .R file in the "R/" folder.
 
 ```
 #' taxonomy_traits
