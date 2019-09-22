@@ -8,7 +8,7 @@ output:
 ## Main components of an R-package
 
 <br>
-```{r, out.width = "500pt", echo = FALSE}
+```{r, out.width = "500pt", echo = FALSE, fig.align="center"}
 
 knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/Rlogo.jpg")
 ```
@@ -27,6 +27,10 @@ knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_y
     .reveal .slides section .slideContent{
         font-size: 62px;
     }
+    .reveal section img {
+    border: none;
+    box-shadow: none;
+  }
 </style>
 
 <style type="text/css">
@@ -157,9 +161,9 @@ install_github("azizka/bromeliad")
 
 ## An example from from the Bromeliaceae
 
-```{r, out.height = "800pt", out.width = "800pt", echo = FALSE}
+```{r, out.width = "1000in", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/pineapple.jpg")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/pineapple2.png")
 ```
 
 ## An example from from the Bromeliaceae
@@ -433,6 +437,60 @@ knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_y
 
 ## R/
 
+```
+get_range <- function(scientific = NULL, canonical = NULL,
+                      genus = NULL, subfamily = NULL,
+                      life_form = NULL,
+                      assessment = NULL, range_size = NULL,
+                      type = "polygon"){
+
+  match.arg(type, choices = c("binary", "suitability", "polygon"))
+
+  taxonomy_traits <- bromeliad::taxonomy_traits
+
+  if(!is.null(scientific)){
+    taxonomy_traits <- dplyr::filter(taxonomy_traits, .data$tax_accepted_name %in% scientific)
+  }
+
+  if(!is.null(canonical)){
+    taxonomy_traits <- dplyr::filter(taxonomy_traits, .data$tax_canonical %in% canonical)
+  }
+
+  if(!is.null(genus)){
+    taxonomy_traits <- dplyr::filter(taxonomy_traits, .data$tax_genus %in% genus)
+  }
+
+  if(!is.null(subfamily)){
+    taxonomy_traits <- dplyr::filter(taxonomy_traits, .data$tax_subfamily %in% subfamily)
+  }
+
+  if(!is.null(life_form)){
+    taxonomy_traits <- dplyr::filter(taxonomy_traits, .data$tr_growth_form %in% life_form)
+  }
+
+  if(!is.null(assessment)){
+    taxonomy_traits <- dplyr::filter(taxonomy_traits, .data$conv_conr_stat %in% assessment)
+  }
+
+  if(!is.null(range_size)){
+    taxonomy_traits <- dplyr::filter(taxonomy_traits, .data$geo_range > range_size[1] & .data$geo_range < range_size[2])
+  }
+
+  switch(type,
+         binary = {model_binary <-  bromeliad::model_binary;
+                   out <- model_binary[which(names(model_binary) %in% taxonomy_traits$tax_accepted_name)]},
+         suitability = {model_ensemble <- bromeliad::model_ensemble; out <- model_ensemble[which(names(model_ensemble) %in% taxonomy_traits$tax_accepted_name)]},
+         polygon = {all_ranges <- bromeliad::all_ranges; out <- dplyr::filter(all_ranges, .data$tax_accepted_name %in% taxonomy_traits$tax_accepted_name)}
+           )
+
+  class(out) <- c("bromeli", class(out))
+
+  return(out)
+}
+
+
+```
+
 ## man/
 <br>
 The documentation of your code. One file per function.
@@ -442,7 +500,7 @@ The documentation of your code. One file per function.
 ?get_range
 ```
 
-```{r, out.width = "1000pt", echo = FALSE}
+```{r, out.width = "800pt", fig.align="center", echo = FALSE}
 knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/function_help.png")
 ```
 
@@ -516,6 +574,12 @@ knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_y
 
 ## Build and check
 
+<br>
+Build
+
+Check
+
+Deploy
 
 
 ## Summary

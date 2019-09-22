@@ -17,6 +17,15 @@ Initial blabla about building and checks
 
 Building seems to have worked! But let's make sure that everything has been set up properly.
 
+
+# Exercise
+
+1. Run R CMD check on your package
+2. Build your package
+3. commit and push to GitHub
+
+
+
 ```{r, eval=FALSE}
 check()
 #> ── R CMD check results ─────────────────────────────────────────────────────────── myPackage 0.0.0.9000 ────

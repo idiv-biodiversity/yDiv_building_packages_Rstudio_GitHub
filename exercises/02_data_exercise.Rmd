@@ -6,6 +6,23 @@ output:
     toc_depth: 2
 ---
 
-# Introduction
+## Introduction
 
 Initial blabla about data
+
+
+## Which data to distribute in a package
+
+## Data documentation
+
+## Example data
+
+## Exercise
+
+### 1. Load data into R
+
+### 2. Structure and name
+
+### 3. Save data as .rda to the data/ fodler
+
+### 4. Data documentation
