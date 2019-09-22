@@ -612,3 +612,8 @@ Rstudio workflow. Next lecture!
 <br>
 Chose a dataset from your research that you want to provide as an R package, and one or two basic functions to use it.
 
+## Remember
+<br>
+Error messages are you frineds!
+
+

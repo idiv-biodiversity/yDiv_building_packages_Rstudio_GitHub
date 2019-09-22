@@ -8,20 +8,41 @@ output:
 
 # Introduction
 
-Initial blabla about building and checks
+Building and checking are two essential steps to finalize your R package. Building means converting your package into a .tar file ("TTape ARchiver" or "tarball") which converts the folder structure of your package into a single file which can easily be read by machines and distributed. Cechking means runing a set of tests on your package, ensuring, that it follows R apckage conventions, is portable across platforms and does not cause problems or damage to the users.
 
 # Build the package
+To build your package, either use the build tab of Rstudio or run `build(".")` in the package directory.
 
+```{r, eval = FALSE}
+build(".")
+```
 
 # Check the package
 
 Building seems to have worked! But let's make sure that everything has been set up properly.
 
+# Tidy code and goodpractice
 
-# Exercise
+On top of `check~ we will run two additional test to make sure the code of your package is readable and does not cause problems. First, run from the formatR package.
+
+
+
+
+# Exercises
 
 1. Run R CMD check on your package
 2. Build your package
+3. Run `formatr` and goodpractice on the code
+
+source("https://install-github.me/MangoTheCat/goodpractice")
+library(goodpractice)
+gp("C:/Users/az64mycy/Dropbox (iDiv)/research_projects/29_CoordinateCleaner/CoordinateCleaner")
+
+#R CMD check
+devtools::check_built(path = "", 
+                      manual = T, cran = T)
+
+devtools::spell_check()
 3. commit and push to GitHub
 
 

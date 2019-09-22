@@ -31,7 +31,7 @@ Day 2 - 9:30 - 18:00
 * 9:30 Project work
 * 11:14 Lecture: "Package testing"
 * 12:00 Lunch
-* 13:00 Lecture: "Package documentation and deployment"
+* 13:00 Lecture: "Package documentation and release"
 * 14:00 Project work
 * 16:15 Student presentations
 * 17:15 Course evaluation and Wrap up
