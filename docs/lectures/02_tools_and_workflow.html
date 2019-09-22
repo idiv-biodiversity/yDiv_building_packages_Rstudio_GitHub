@@ -1379,6 +1379,83 @@ transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
 
     <style type="text/css">code{white-space: pre;}</style>
 
+    <style type="text/css">#nextsteps {
+color: blue;
+}
+.highlight {
+color: #2a76dd;
+font-size: 0.1em;
+text-shadow: 1px 1px 2px black;
+}
+.grayed {
+color: #aaa;
+font-size: 0.1em;
+}
+.black {
+color: #000;
+font-size: 0.1em;
+}
+.white {
+color: #fff;
+font-size: 0.1em;
+text-shadow: 1px 1px 2px black;
+}
+.bright {
+color: #f4e868;
+font-size: 0.1em;
+}
+.reveal p {
+margin: 20px 0;
+line-height: 1.15; }
+.reveal ul {
+display: block;
+}
+.reveal ol {
+display: block;
+}
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+margin: 0 0 20px 0;
+font-family: Ubuntu, "sans-serif";
+font-weight: normal;
+line-height: 1.2;
+letter-spacing: normal;
+text-transform: none !important;
+text-shadow: 0px 0px 0px #222 !important;
+word-wrap: break-word; }
+.reveal h1 {
+font-size: 1.7em; }
+.reveal h1.subtitle {
+font-size: 1.3em;
+}
+.reveal h2 {
+font-size: 1.1em; }
+.reveal h2.author {
+font-size: 0.7em; }
+.reveal h3 {
+font-size: 0.8em; }
+.reveal section img {
+margin: 15px 0px;
+background: rgba(255, 255, 255, 0);
+border: 0px solid #eee;
+box-shadow: 0 0 0px rgba(0, 0, 0, 0.15); }
+.transparentBG {
+text-align: left;
+padding: 5px 30px !important;
+border: 1px solid #000;
+}
+.row {
+display: flex;
+}
+.column {
+flex: 33.33%;
+padding: 5px;
+}
+</style>
 
 <!-- Printing and PDF exports -->
 <script id="paper-css" type="application/dynamic-css">
@@ -1772,42 +1849,106 @@ document.getElementsByTagName('head')[0].appendChild(style);
     <h3 class="date">September 23, 2019</h3>
 </section>
 
+<section id="rstudio" class="slide level2">
+<h2>RStudio</h2>
+<p>Has revolutionised the way to interact with R</p>
+<p>This Integrated development environment (IDE) is built around some of the most useful R functions/packages (inlc. <code>devtools</code> and <code>roxygen2</code>).</p>
+<p>Lets you set up projects, is integrated with git and makes setting up websites and writing articles/books a breeze!</p>
+<p><br></p>
+<p><span class="grayed">Shall we take a look at RStudio together or does everybody know their way around?</span></p>
+</section>
+<section id="tools" class="slide level2">
+<h2>Tools</h2>
+<p>You can do most things by typing commands into the console.</p>
+<p>However, if that is too nerdy for you, you can also click on buttons! (<span class="grayed">show some cool buttons</span>)</p>
+<p><br></p>
+<p>Why should you then use the console at all? <br> -&gt; it makes your work reproducible and more transparent for readers/users of your work.</p>
+<p>Here we show mostly how to use the console for making your package.</p>
+</section>
 <section id="devtools" class="slide level2">
 <h2><code>devtools</code></h2>
 <p>tools for building, documenting and testing packages</p>
-<p><a href="https://cran.r-project.org/web/packages/devtools">devtools</a></p>
+<p><a href="https://cran.r-project.org/web/packages/devtools">link</a></p>
 </section>
 <section id="usethis" class="slide level2">
 <h2><code>usethis</code></h2>
 <p>provides many functions that help setting up a package</p>
 <p>provides a “standard way of doing things” that ensures you miss no (crucial) step</p>
-<p><a href="https://cran.r-project.org/web/packages/usethis/">usethis</a></p>
+<p><a href="https://cran.r-project.org/web/packages/usethis/">link</a></p>
 </section>
 <section id="testthat" class="slide level2">
 <h2><code>testthat</code></h2>
 <p>specify what you expect your functions to do</p>
 <p>write unit-tests (test for similar sets of tasks) that validate your expectations</p>
 <p>display test progress visually</p>
-<p><a href="https://cran.r-project.org/web/packages/testthat/">testthat</a></p>
+<p><a href="https://cran.r-project.org/web/packages/testthat/">link</a></p>
 </section>
 <section id="roxygen" class="slide level2">
 <h2><code>roxygen</code></h2>
 <p>generate R documentation</p>
 <p>manage the package namespace</p>
-<p><a href="https://cran.r-project.org/web/packages/roxygen2/">roxygen2</a></p>
+<p><a href="https://cran.r-project.org/web/packages/roxygen2/">link</a></p>
 </section>
 <section id="checkmate" class="slide level2">
 <h2><code>checkmate</code></h2>
 <p>make sure that arguments are what they should be</p>
 <p>test whether and assert that certain conditions about objects are true</p>
 <p>extend the capabilities of <code>testthat</code></p>
-<p><a href="https://cran.r-project.org/web/packages/checkmate/">checkmate</a></p>
+<p><a href="https://cran.r-project.org/web/packages/checkmate/">link</a></p>
 </section>
 <section id="lintr" class="slide level2">
 <h2><code>lintr</code></h2>
 <p>check whether your code adheres to a given style/best practice on formatting</p>
 <p>(do this only if you have too much time!)</p>
-<p><a href="https://cran.r-project.org/web/packages/lintr/index.html">lintr</a></p>
+<p><a href="https://cran.r-project.org/web/packages/lintr/index.html">link</a></p>
+</section>
+<section id="getting-started" class="slide level2">
+<h2>1. Getting started</h2>
+<p>Then you can either click on <br><em>File &gt; New Project &gt; New Directory &gt; R package</em><br> and provide all sort of information, or simply type in <code>create_package()</code> into the console.</p>
+<p><br></p>
+<p>-&gt; the console is your friend, in R it even talks to you, for example if you type in something wrong.</p>
+</section>
+<section id="setting-up-git" class="slide level2">
+<h2>2. Setting up git</h2>
+<p>I hope you all have an account already! (<span class="grayed">www.github.com</span>)</p>
+<p><br></p>
+<p><code>git</code> (a software) is a version control system that lets you track files through their whole life.</p>
+<p><code>github</code> (a website) allows managing issues people might have with/find in your code.</p>
+<p>If you do github well, it might even be a nice advertisement for your work!</p>
+<p><br></p>
+<p>-&gt; to learn more about git, take the yDiv course by Dirk and Christian, who talk about it every other month or so.</p>
+</section>
+<section id="edit-the-description-of-your-package" class="slide level2">
+<h2>3. Edit the DESCRIPTION of your package</h2>
+<p>This is an important step, because</p>
+<ul>
+<li>it lets you formulate what you even want to achieve with the package in a brief description.</li>
+<li>it makes metadata about your package available.</li>
+</ul>
+<p><br></p>
+<p>-&gt; make sure to take care that everything is properly described here, this is the public face of your package.</p>
+</section>
+<section id="read-in-data-write-functions" class="slide level2">
+<h2>4. Read in data &amp; write function(s)</h2>
+<p>The backbone of your package, this is why users consult your package.</p>
+</section>
+<section id="document-data-functions" class="slide level2">
+<h2>5. Document data &amp; functions</h2>
+</section>
+<section id="build-and-test-the-package" class="slide level2">
+<h2>6. Build and test the package</h2>
+</section>
+<section id="repeat-until-you-are-satisfied" class="slide level2">
+<h2>7. Repeat until you are satisfied</h2>
+</section>
+<section id="publish-your-work." class="slide level2">
+<h2>8. Publish your work.</h2>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p>Use RStudio to manage your package</p>
+<p>Use git(hub/lab) to host your package for collaboration</p>
+<p><br> set up package and its description <br> -&gt; write functions <br> -&gt; document functions <br> -&gt; build and test package <br> -&gt; repeat … <br> -&gt; publish</p>
 </section>
     </div>
   </div>
