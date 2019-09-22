@@ -123,12 +123,12 @@ Functions can be nested in one another, however, this should only be done with c
 ```{r, eval=FALSE}
 load_all()
 #> Loading myPackage
-report_summary(iris$Sepal.Length, measure = "median")
+report_summary(plantTraits$height, measure = "median")
 #> median 
-#>    5.8 
-report_summary(iris$Sepal.Length, measure = "mean", quantiles = seq(0, 1, 0.2))
+#>      4 
+report_summary(plantTraits$height, measure = "mean", quantiles = seq(0, 1, 0.2))
 #> mean   0%  20%  40%  60%  80% 100% 
-#> 5.84 4.30 5.00 5.60 6.10 6.52 7.90 
+#> 4.12    1    2    3    4    6    8 
 ```
 
 ## Your turn
