@@ -8,9 +8,7 @@ output:
 
 # Introduction
 
-
-Initial blabla about functions and their documentation
-
+We write functions out of various reasons, the most important of which is to automate frequently used scripts. Scripts may contain many repetitive lines of code that all carry out the same task on a range of different objects. In a function code only needs to be modified once, if needs be, and the instance where that code is called can remain unchanged. When rigurously testing your functions, you can avoid a large set of potential errors due to typos or false specification of arguments in the script.
 
 # Create your first function
 
