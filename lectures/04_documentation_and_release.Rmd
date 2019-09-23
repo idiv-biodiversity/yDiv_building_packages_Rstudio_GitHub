@@ -11,7 +11,7 @@ Vignettes are more detailed than help apckes, for instance tutorials for analyse
 
 ## Vignettes
 <br>
-You can write vignettes in markdown, combning text and code.
+You can write vignettes in markdown, combining text and code.
 
 # Vignettes
 
@@ -203,6 +203,6 @@ Read and strictly follow 'Writing R extensions'
 
 Solve all R CMD errors, warnings and notes
 
-# RElease on CRAN
+# Release on CRAN
 
 ## Ropensci
