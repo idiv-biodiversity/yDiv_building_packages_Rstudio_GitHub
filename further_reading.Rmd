@@ -10,7 +10,7 @@ A list of links and literature giving more background on programming and package
 
 # Official guides
 
-The official R website (CRAN) provides a couple of [manuals](https://cran.r-project.org/manuals.html) and especially [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) is of importance when making a new package. Many of the standards defined there are already implemented in R Studio but you will most certainly encounter one or the other issue that requires you to study (a part of) this guide.
+The official R website (CRAN) provides a couple of [manuals](https://cran.r-project.org/manuals.html) and especially [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) is of importance when making a new package. Many of the standards defined there are already implemented in RStudio but you will most certainly encounter one or the other issue that requires you to study (a part of) this guide.
 
 ## Bioconductor
 
@@ -46,7 +46,11 @@ Write your [article](https://bookdown.org/yihui/rmarkdown/journals.html) via the
 
 ## Presentations
 
-Also your [presentations](https://bookdown.org/yihui/rmarkdown/presentations.html) can be compiled with R-Studio (the presentation of this course have been made with revealjs).
+Also your [presentations](https://bookdown.org/yihui/rmarkdown/presentations.html) can be compiled with R-Studio (the presentations of this course have been made with revealjs).
 
 
 PS: For the sake of workflow-interoperability, you can also compile the R markdown documents you will be writing from now on to *.docx, to send your manuscript for instance to your supervisor(s) or project partners.
+
+## More git
+
+There is the book [Happy Git and GitHub for the useR](https://happygitwithr.com/), which deals in depth with git, R and you!

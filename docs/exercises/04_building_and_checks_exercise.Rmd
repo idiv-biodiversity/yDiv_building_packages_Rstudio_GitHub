@@ -30,7 +30,7 @@ check(".")
 
 ## 3. Tidy code and goodpractice
 
-On top of `check` we will run two additional test to make sure the code of your package is readable and does not cause problems. First, we will run the spellcheck function of the detools package, to check the documentation of your package. 
+On top of `check` we will run two additional test to make sure the code of your package is readable and does not cause problems. First, we will run the spellcheck function of the `devtools` package, to check the documentation of your package. 
 
 ```{r, eval = FALSE}
 spell_check()

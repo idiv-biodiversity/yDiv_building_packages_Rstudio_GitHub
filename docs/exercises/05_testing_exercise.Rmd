@@ -9,7 +9,7 @@ output:
 
 # Introduction
 
-We have learned from the previous exercise how to run automated checks for when the package is built. Those check ensure that the package is a viable package, with respect to metadata and how the package is set up. However, they do not ensure out of the box that the functions in this package are unambiguous in their arguments and that the output is what is expected under all circumstances.
+We have learned from the previous exercise how to run automated checks for when the package is built. Those checks ensure that the package is a viable package, with respect to metadata and how the package is set up. However, they do not ensure out of the box that the functions in this package are unambiguous in their arguments and that the output is what is expected under all circumstances.
 
 # Include assertions in function
 

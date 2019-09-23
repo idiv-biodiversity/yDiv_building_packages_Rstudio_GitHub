@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -342,18 +343,6 @@ summary {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -410,7 +399,7 @@ build(&quot;.&quot;)</code></pre>
 </div>
 <div id="tidy-code-and-goodpractice" class="section level2">
 <h2>3. Tidy code and goodpractice</h2>
-<p>On top of <code>check</code> we will run two additional test to make sure the code of your package is readable and does not cause problems. First, we will run the spellcheck function of the detools package, to check the documentation of your package.</p>
+<p>On top of <code>check</code> we will run two additional test to make sure the code of your package is readable and does not cause problems. First, we will run the spellcheck function of the <code>devtools</code> package, to check the documentation of your package.</p>
 <pre class="r"><code>spell_check()</code></pre>
 <p>If you think that your code might need some tweaking of readability and coding best practices. You can run the <code>tidy_dir()</code> function of the formatR package. Since formatR sometimes makes doubtful changes in the formatting, especially concerning the line breaks, make sure to check your ‘.R’ files afterwards and do manual changes where necessary.</p>
 <pre class="r"><code>tidy_dir(&quot;/R&quot;)</code></pre>
@@ -445,6 +434,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
