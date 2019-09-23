@@ -50,3 +50,7 @@ Also your [presentations](https://bookdown.org/yihui/rmarkdown/presentations.htm
 
 
 PS: For the sake of workflow-interoperability, you can also compile the R markdown documents you will be writing from now on to *.docx, to send your manuscript for instance to your supervisor(s) or project partners.
+
+## More git
+
+There is the book [Happy Git and GitHub for the useR](https://happygitwithr.com/), which deals in depth with git, R and you!
