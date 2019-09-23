@@ -1896,21 +1896,16 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <p>extend the capabilities of <code>testthat</code></p>
 <p><a href="https://cran.r-project.org/web/packages/checkmate/">link</a></p>
 </section>
-<section id="lintr" class="slide level2">
-<h2><code>lintr</code></h2>
-<p>check whether your code adheres to a given style/best practice on formatting</p>
-<p>(do this only if you have too much time!)</p>
-<p><a href="https://cran.r-project.org/web/packages/lintr/index.html">link</a></p>
-</section>
 <section id="getting-started" class="slide level2">
 <h2>1. Getting started</h2>
-<p>Then you can either click on <br><em>File &gt; New Project &gt; New Directory &gt; R package</em><br> and provide all sort of information, or simply type in <code>create_package()</code> into the console.</p>
+<p>You can either click on <br><em>File &gt; New Project &gt; New Directory &gt; R package</em><br> and provide all sort of information, or simply type in <code>create_package()</code> into the console.</p>
 <p><br></p>
 <p>-&gt; the console is your friend, in R it even talks to you, for example if you type in something wrong.</p>
 </section>
 <section id="setting-up-git" class="slide level2">
 <h2>2. Setting up git</h2>
 <p>I hope you all have an account already! (<span class="grayed">www.github.com</span>)</p>
+<p>A simple <code>use_git()</code> will assist you in setting up git.</p>
 <p><br></p>
 <p><code>git</code> (a software) is a version control system that lets you track files through their whole life.</p>
 <p><code>github</code> (a website) allows managing issues people might have with/find in your code.</p>
@@ -1931,18 +1926,32 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="read-in-data-write-functions" class="slide level2">
 <h2>4. Read in data &amp; write function(s)</h2>
 <p>The backbone of your package, this is why users consult your package.</p>
+<p><code>use_data(myData)</code> to include data and <br> <code>use_r(name = &quot;myFunc&quot;)</code> to start a function.</p>
+<p>It is not only about <em>what</em> your package does, but also <em>how</em> it achieves that (<span class="grayed">tidyverse</span>).</p>
+<p><br></p>
+<p>-&gt; be smart about functions.</p>
 </section>
 <section id="document-data-functions" class="slide level2">
 <h2>5. Document data &amp; functions</h2>
+<p>Use roxygen commands to annotate the documentation text inside the function file.</p>
+<p><code>document()</code> to build the documentation.</p>
+<p><br></p>
+<p>-&gt; even widely spread packages have a bad documentation at times. You can distinguish your package by putting effort into explaining your functions.</p>
 </section>
 <section id="build-and-test-the-package" class="slide level2">
 <h2>6. Build and test the package</h2>
+<p>R function run also without compiling (building).</p>
+<p>It will often be the case that you use variables that are only available in the <code>Global Environment</code>, so you have to test a function in the package, where those variables are not available.</p>
+<p><code>build()</code> compiles the package, which gives you first warnings.<br> <code>test()</code> runs the package tests.<br> <code>check()</code> makes sure that the package is viable.</p>
+<p><br></p>
+<p>-&gt; make use of this infrastructure, it iproves your package drastically</p>
 </section>
-<section id="repeat-until-you-are-satisfied" class="slide level2">
-<h2>7. Repeat until you are satisfied</h2>
-</section>
-<section id="publish-your-work." class="slide level2">
-<h2>8. Publish your work.</h2>
+<section id="finally" class="slide level2">
+<h2>Finally</h2>
+<ol start="7" type="1">
+<li><p>Repeat until you are satisfied …</p></li>
+<li><p>Publish your work.</p></li>
+</ol>
 </section>
 <section id="summary" class="slide level2">
 <h2>Summary</h2>

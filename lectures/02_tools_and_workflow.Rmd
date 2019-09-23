@@ -88,18 +88,10 @@ extend the capabilities of `testthat`
 
 [link](https://cran.r-project.org/web/packages/checkmate/)
 
-## `lintr`
-
-check whether your code adheres to a given style/best practice on formatting
-
-(do this only if you have too much time!)
-
-[link](https://cran.r-project.org/web/packages/lintr/index.html)
-
 
 ## 1. Getting started
 
-Then you can either click on <br>*File > New Project > New Directory > R package*<br> and provide all sort of information, or simply type in `create_package()` into the console.
+You can either click on <br>*File > New Project > New Directory > R package*<br> and provide all sort of information, or simply type in `create_package()` into the console.
 
 <br>
 
@@ -109,6 +101,8 @@ Then you can either click on <br>*File > New Project > New Directory > R package
 ## 2. Setting up git
 
 I hope you all have an account already! (<span class="grayed">www.github.com</span>)
+
+A simple `use_git()` will assist you in setting up git.
 
 <br>
 
@@ -138,13 +132,45 @@ This is an important step, because
 
 The backbone of your package, this is why users consult your package.
 
+`use_data(myData)` to include data and <br>
+`use_r(name = "myFunc")` to start a function. 
+
+It is not only about *what* your package does, but also *how* it achieves that (<span class="grayed">tidyverse</span>).
+
+<br>
+
+-> be smart about functions. 
+
 ## 5. Document data & functions
+
+Use roxygen commands to annotate the documentation text inside the function file.
+
+`document()` to build the documentation.
+
+<br>
+
+-> even widely spread packages have a bad documentation at times. You can distinguish your package by putting effort into explaining your functions.
+
 
 ## 6. Build and test the package
 
-## 7. Repeat until you are satisfied
+R function run also without compiling (building).
 
-## 8. Publish your work.
+It will often be the case that you use variables that are only available in the `Global Environment`, so you have to test a function in the package, where those variables are not available.
+
+`build()` compiles the package, which gives you first warnings.<br>
+`test()` runs the package tests.<br>
+`check()` makes sure that the package is viable.
+
+<br>
+
+-> make use of this infrastructure, it iproves your package drastically
+
+## Finally
+
+7. Repeat until you are satisfied ...
+
+8. Publish your work.
 
 
 
