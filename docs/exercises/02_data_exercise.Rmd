@@ -41,7 +41,7 @@ Make sure the dataset has the format you want and check that the R object is nam
 Now, save the dataset in the data/ folder of your package as an .rda file using `save`.
 
 ```{r, eval = FALSE}
-save(plt_trait, file = "data/plant_traits.rda")
+use_data(plt_trait)
 ```
 
 ## 4. Data documentation

@@ -8,4 +8,17 @@ output:
 
 # Introduction
 
-Initial blabla about deployment
+Initial blabla about release
+
+# Github
+
+# CRAN
+
+# Exercises
+
+## 1. News.md, cran-comments.ms
+
+## 2. Github release
+
+## 3. CRAN submission
+
