@@ -16,13 +16,16 @@ You can write vignettes relatively easily in R Markdown, which is basically a ve
 # Exercises
 
 ## 1. Create a R markdown file
+You can create the file with usethis::use_vignette("YOUR_VIGNETTE_NAME"). This will create a vignette folder in your package directory and the RMmarkdown file of the vignette inside. You can now start to edit it.
 
 ## 2. Write a short vignette including code from your package
+THere are no hard limitations on the content and size of vignettes, and the relation of code and text. Try to take a users perspective, and make it as easy as possible to understand how to use your package for someone who has no knowledge of it. If you have questions on markdown beyond the demo, have a look at the [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) or the respective [book chapter](http://r-pkgs.had.co.nz/vignettes.html).
+
 
 ## 3. Done
 
 
-# Demo
+<!-- # Demo -->
 <!-- usethis::use_vignette("uses_genus") -->
 
 <!-- # Introduction -->
@@ -32,3 +35,13 @@ You can write vignettes relatively easily in R Markdown, which is basically a ve
 <!-- ``` -->
 
 <!-- # Plotting traditional use per genus -->
+
+
+<!-- ```{r, fig.width = 10} -->
+<!-- plot_use("Combretum") -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- plot_organ("Ziziphus") -->
+<!-- ``` -->
+
