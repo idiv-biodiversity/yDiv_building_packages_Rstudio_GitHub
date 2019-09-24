@@ -54,3 +54,7 @@ PS: For the sake of workflow-interoperability, you can also compile the R markdo
 ## More git
 
 There is the book [Happy Git and GitHub for the useR](https://happygitwithr.com/), which deals in depth with git, R and you!
+
+## More testing
+
+To show to your users that your package works properly and is tested, you can use services from other websites that check your code. For instance, [travis](https://travis-ci.org/) builds your package on a range of virtual machines and makes thereby sure that this is possible. [codecov](https://codecov.io/) scrutinises the tests of your package and visualises a "code coverage", that is, how well your code is covered by the tests you wrote. Those are explained in https://r-pkgs.org/ and they have easy to use ` devtools` functions.
