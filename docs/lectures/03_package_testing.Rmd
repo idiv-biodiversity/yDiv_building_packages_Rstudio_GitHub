@@ -181,6 +181,7 @@ test_that("multiplication works", {
 })
 ```
 
+<div class="fragment">
 change that to
 
 ```{r, eval=FALSE}
@@ -189,6 +190,7 @@ test_that("output is a character string", {
   expect_character(x = out, len = 1, pattern = "Hello.*!")
 })
 ```
+</div>
 
 ## 3. tests
 
