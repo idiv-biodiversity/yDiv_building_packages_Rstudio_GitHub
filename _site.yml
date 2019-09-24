@@ -22,7 +22,7 @@ navbar:
     - text: 06 - Vignettes
       href: exercises/06_vignettes_exercise.html
     - text: 07 - Release
-      href: exercises/07_release_exercise.html
+      href: exercises/07_release_exercise.Rmd
 
   - text: Further reading
     href: further_reading.html
