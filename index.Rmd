@@ -22,22 +22,22 @@ Day 1 - 9:30 - 18:00 (remote)
 Morning
 
 1. Hi from Alex and & Steffen
-2. Lectures “Main components of an R-package“
+2. Lectures "Main components of an R-package"
 3. Student project design
-4. “How to build an R package – Tools and workflow“
+4. "How to build an R package – Tools and workflow"
 
 Afternoon
 
-5. Demo + exercise 1 “Package skeleton and data”
-6. Demo + exercise 2&3 “Data and Functions”
-7. Demo + exercise 4: “Building and checks”
+5. Demo + exercise 1 "Package skeleton and data"
+6. Demo + exercise 2&3 "Data and Functions"
+7. Demo + exercise 4: "Building and checks"
 
 Day 2 - 9:30 - 18:00 (Grand Canyon, C.02.05)
 
 Morning
 
 1. Project work
-2. Lecture & exercise “package testing” (Steffen)
+2. Lecture & exercise "package testing" (Steffen)
 
 Afternoon
 
