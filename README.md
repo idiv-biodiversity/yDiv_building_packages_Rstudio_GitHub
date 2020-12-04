@@ -1,32 +1,46 @@
 # yDiv Course: Building R packages with Rstudio and GitHub
 
-Date & time: Monday, September 23 – Tuesday, September 24, 2019 (5 full days)
+Date & time: Monday, December 07 – Tuesday, December 08 (2 full days)
 
-Location: Leipzig, Deutscher Platz, German Centre for Integrative Biodiversity Research (iDiv) - Interim III, Metamorphosis, 
+Location: 
+
+* Monday: remote, Big Blue Button(see slack and email for the link)
+* Tuesday: Leipzig, Puschstrasse 4, Grand Canyon (C.02.05)  
 
 Teachers: Alexander Zizka & Steffen Ehrmann, University of Leipzig and German Centre for Integrative Biodiversity Research  
 
 
 # Detailed schedule and locations
-Day 1 - 9:30 - 18:00
+Day 1 - 9:30 - 18:00 (remote)
 
-* 9:30 Introduction
-* 10:00 Lecture "Main components of an R-package"
-* 11:00 Lecture "Tools and workflow for building R packages"
-* 12:00 Lunch
-* 13:00 Demo + Exercise 1 & 2: "Package skeleton and data"
-* 14:30 Demo + Exercise 3: "Functions and Documentation"
-* 16:30 Demo + Exercise 4: "Package building and checking"
+Morning
 
-Day 2 - 9:30 - 18:00
+1. Hi from Alex and & Steffen
+2. Lectures “Main components of an R-package“
+3. Student project design
+4. “How to build an R package – Tools and workflow“
 
-* 9:30 Project work
-* 11:00 Lecture: "Package testing"
-* 12:00 Lunch
-* 13:00 Lecture: "Package documentation and deployment"
-* 14:00 Project work
-* 16:15 Student presentations
-* 17:15 Course evaluation and Wrap up
+Afternoon
+
+5. Demo + exercise 1 “Package skeleton and data”
+6. Demo + exercise 2&3 “Data and Functions”
+7. Demo + exercise 4: “Building and checks”
+
+Day 2 - 9:30 - 18:00 (Grand Canyon, C.02.05)
+
+Morning
+
+1. Project work
+2. Lecture & exercise “package testing” (Steffen)
+
+Afternoon
+
+3. Demo Code documentation (Steffen)
+4. Project work
+5. Demo package release (Alex)
+6. Student presentations
+7. Course evaluation and Wrap up
+
 
 # Before the course
 Please:

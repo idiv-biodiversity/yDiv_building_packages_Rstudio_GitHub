@@ -10,7 +10,7 @@ output:
 <br>
 ```{r, out.width = "500pt", echo = FALSE, fig.align="center"}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/Rlogo.jpg")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/Rlogo.jpg")
 ```
 
 
@@ -78,7 +78,7 @@ raster()
 
 ```{r, out.width = "1000in", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/Popular-R-Packages-2.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/Popular-R-Packages-2.png")
 ```
 
 
@@ -120,14 +120,14 @@ Collaborate on a project
 
 ```{r, out.width = "1000in", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/cran_full.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/cran_full.png")
 ```
 
 ## 1. The Comprehensive R Archive Network (CRAN)
 
 ```{r, out.width = "1000in", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/CRAN_packages.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/CRAN_packages.png")
 ```
 
 
@@ -141,13 +141,13 @@ install.packages("ggplot2")
 ## 2. GitHub
 ```{r, out.width = "1000in", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/github_intro.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/github_intro.png")
 ```
 
 ## 2. GitHub
 ```{r, out.width = "1000in", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/github_package.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/github_package.png")
 ```
 
 ## Also easy
@@ -163,14 +163,14 @@ install_github("azizka/bromeliad")
 
 ```{r, out.width = "1000in", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/pineapple2.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/pineapple2.png")
 ```
 
 ## An example from from the Bromeliaceae
 <br>
 ```{r, out.width = "1000in", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/bromeliad_manuscript.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/bromeliad_manuscript.png")
 ```
 
 ## An example from from the Bromeliaceae
@@ -238,7 +238,7 @@ A folder...
 
 ```{r, out.width = "1000pt", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/package_folder.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/package_folder.png")
 ```
 
 
@@ -314,7 +314,7 @@ Please cite the package as Zizka A *et al.* (2019) bromeliad. An R package for b
 ## README.md
 ```{r,out.width = "1000pt", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/readme_screenshot.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/readme_screenshot.png")
 ```
 
 
@@ -431,7 +431,7 @@ smiley(happy = FALSE)
 ## R/
 ```{r, out.width = "1000pt", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/R_folder.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/R_folder.png")
 ```
 
 
@@ -501,13 +501,13 @@ The documentation of your code. One file per function.
 ```
 
 ```{r, out.width = "800pt", fig.align="center", echo = FALSE}
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/function_help.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/function_help.png")
 ```
 
 ## man/
 ```{r, out.width = "1000pt", echo = FALSE}
 
-knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2019_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/man_folder.png")
+knitr::include_graphics(path = "C:/Users/az64mycy/Dropbox (iDiv)/teaching/2020_yDiv_Rpackaging/yDiv_building_packages_Rstudio_GitHub/lectures/pictures/man_folder.png")
 ```
 
 

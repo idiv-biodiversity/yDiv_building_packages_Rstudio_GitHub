@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title>index.utf8.md</title>
+<title>index.utf8</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,8 +22,19 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -85,7 +96,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -234,6 +244,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -245,18 +256,6 @@ $(document).ready(function () {
   display: none;
 }
 </style>
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
 
 <!-- code folding -->
 
@@ -318,7 +317,7 @@ $(document).ready(function () {
       <a href="exercises/06_vignettes_exercise.html">06 - Vignettes</a>
     </li>
     <li>
-      <a href="exercises/07_release_exercise.Rmd">07 - Release</a>
+      <a href="exercises/07_final_checks_and_release_exercise.html">07 - Release</a>
     </li>
   </ul>
 </li>
@@ -345,33 +344,44 @@ $(document).ready(function () {
 
 <div id="ydiv-course-building-r-packages-with-rstudio-and-github" class="section level1">
 <h1>yDiv Course: Building R packages with Rstudio and GitHub</h1>
-<p>Date &amp; time: Monday, September 23 - Tuesday, September 24, 2018 (2 full days)</p>
-<p>Location: Leipzig, Deutscher Platz, German Centre for Integrative Biodiversity Research (iDiv) - Interim III, Metamorphosis,</p>
-<p>Teachers: Alexander Zizka &amp; Steffen Ehrmann, University of Leipzig/German Centre for Integrative Biodiversity Research</p>
-<div id="detailed-schedule-and-locations" class="section level2">
-<h2>Detailed schedule and locations</h2>
-<p>Day 1 - 9:30 - 18:00</p>
+<p>Date &amp; time: Monday, December 07 – Tuesday, December 08 (2 full days)</p>
+<p>Location:</p>
 <ul>
-<li>9:30 Introduction</li>
-<li>10:00 Lecture “Main components of an R-package”</li>
-<li>10:45 Definition of the student projects</li>
-<li>11:15 Lecture “How to build an R package â€“ Tools and workflow”</li>
-<li>12:00 Lunch</li>
-<li>13:00 Demo + Exercise 1 &amp; 2: “Package skeleton and data”</li>
-<li>14:30 Demo + Exercise 3: “Functions and Documentation”</li>
-<li>16:30 Demo + Exercise 4: “Package building and checking”</li>
+<li>Monday: remote, Big Blue Button(see slack and email for the link)</li>
+<li>Tuesday: Leipzig, Puschstrasse 4, Grand Canyon (C.02.05)</li>
 </ul>
-<p>Day 2 - 9:30 - 18:00</p>
-<ul>
-<li>9:30 Project work</li>
-<li>11:14 Lecture: “Package testing”</li>
-<li>12:00 Lunch</li>
-<li>13:00 Lecture: “Package documentation and release”</li>
-<li>14:00 Project work</li>
-<li>16:15 Student presentations</li>
-<li>17:15 Course evaluation and Wrap up</li>
-</ul>
+<p>Teachers: Alexander Zizka &amp; Steffen Ehrmann, University of Leipzig and German Centre for Integrative Biodiversity Research</p>
 </div>
+<div id="detailed-schedule-and-locations" class="section level1">
+<h1>Detailed schedule and locations</h1>
+<p>Day 1 - 9:30 - 18:00 (remote)</p>
+<p>Morning</p>
+<ol style="list-style-type: decimal">
+<li>Hi from Alex and &amp; Steffen</li>
+<li>Lectures “Main components of an R-package“</li>
+<li>Student project design</li>
+<li>“How to build an R package – Tools and workflow“</li>
+</ol>
+<p>Afternoon</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Demo + exercise 1 “Package skeleton and data”</li>
+<li>Demo + exercise 2&amp;3 “Data and Functions”</li>
+<li>Demo + exercise 4: “Building and checks”</li>
+</ol>
+<p>Day 2 - 9:30 - 18:00 (Grand Canyon, C.02.05)</p>
+<p>Morning</p>
+<ol style="list-style-type: decimal">
+<li>Project work</li>
+<li>Lecture &amp; exercise “package testing” (Steffen)</li>
+</ol>
+<p>Afternoon</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Demo Code documentation (Steffen)</li>
+<li>Project work</li>
+<li>Demo package release (Alex)</li>
+<li>Student presentations</li>
+<li>Course evaluation and Wrap up</li>
+</ol>
 <div id="before-the-course" class="section level2">
 <h2>Before the course</h2>
 <p>Please:</p>
@@ -437,7 +447,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -445,6 +455,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
