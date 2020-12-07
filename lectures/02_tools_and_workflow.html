@@ -3,8 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content />
-  <meta name="dcterms.date" content="2019-09-23" />
   <title>Tools and workflow for building R packages</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1839,6 +1837,19 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
+    <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 </head>
 <body>
   <div class="reveal">
@@ -1846,7 +1857,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <section>
     <h1 class="title">Tools and workflow for building R packages</h1>
-    <h3 class="date">September 23, 2019</h3>
+    <h2 class="author"></h2>
+    <h3 class="date">Dezemeber 07, 2020</h3>
 </section>
 
 <section id="rstudio" class="slide level2">

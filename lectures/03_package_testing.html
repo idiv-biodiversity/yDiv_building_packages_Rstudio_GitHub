@@ -3,8 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content />
-  <meta name="dcterms.date" content="2019-09-24" />
   <title>Package testing</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1085,26 +1083,27 @@ visibility: hidden; }
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -1113,9 +1112,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -1825,6 +1824,19 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
+    <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 </head>
 <body>
   <div class="reveal">
@@ -1832,7 +1844,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <section>
     <h1 class="title">Package testing</h1>
-    <h3 class="date">September 24, 2019</h3>
+    <h2 class="author"></h2>
+    <h3 class="date">Dezemeber 08, 2020</h3>
 </section>
 
 <section id="what-is-testing" class="slide level2">
@@ -1852,22 +1865,22 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="invalid-arguments" class="slide level2">
 <h2>Invalid arguments?</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">greet &lt;-<span class="st"> </span><span class="cf">function</span>(whom){</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">  out &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Hello '&quot;</span>, whom, <span class="st">&quot;'!&quot;</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="kw">return</span>(out)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">aList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">people =</span> <span class="kw">c</span>(<span class="st">&quot;Amelie&quot;</span>, <span class="st">&quot;Peter&quot;</span>), <span class="dt">animals =</span> <span class="kw">c</span>(<span class="st">&quot;my cat&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>greet &lt;-<span class="st"> </span><span class="cf">function</span>(whom){</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  out &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Hello &#39;&quot;</span>, whom, <span class="st">&quot;&#39;!&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="kw">return</span>(out)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5"></a>aList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">people =</span> <span class="kw">c</span>(<span class="st">&quot;Amelie&quot;</span>, <span class="st">&quot;Peter&quot;</span>), <span class="dt">animals =</span> <span class="kw">c</span>(<span class="st">&quot;my cat&quot;</span>))</span></code></pre></div>
 <div class="fragment">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">greet</span>(<span class="dt">whom =</span> aList)</a></code></pre></div>
-<pre><code>## [1] &quot;Hello 'c(\&quot;Amelie\&quot;, \&quot;Peter\&quot;)'!&quot; &quot;Hello 'my cat'!&quot;</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">greet</span>(<span class="dt">whom =</span> aList)</span></code></pre></div>
+<pre><code>## [1] &quot;Hello &#39;c(\&quot;Amelie\&quot;, \&quot;Peter\&quot;)&#39;!&quot; &quot;Hello &#39;my cat&#39;!&quot;</code></pre>
 </div>
 </section>
 <section id="invalid-arguments-1" class="slide level2">
 <h2>Invalid arguments!</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">report_summary</span>(<span class="dt">data =</span> iris, <span class="dt">measure =</span> <span class="st">&quot;median&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">report_summary</span>(<span class="dt">data =</span> iris, <span class="dt">measure =</span> <span class="st">&quot;median&quot;</span>)</span></code></pre></div>
 <pre><code>## Error in median.default(x = data, na.rm = na.rm): need numeric data</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">report_summary</span>(<span class="dt">data =</span> iris<span class="op">$</span>Sepal.Length, <span class="dt">measure =</span> <span class="st">&quot;sd&quot;</span>)</a></code></pre></div>
-<pre><code>## Error in report_summary(data = iris$Sepal.Length, measure = &quot;sd&quot;): object 'out' not found</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">report_summary</span>(<span class="dt">data =</span> iris<span class="op">$</span>Sepal.Length, <span class="dt">measure =</span> <span class="st">&quot;sd&quot;</span>)</span></code></pre></div>
+<pre><code>## Error in report_summary(data = iris$Sepal.Length, measure = &quot;sd&quot;): object &#39;out&#39; not found</code></pre>
 </section>
 <section id="assertions" class="slide level2">
 <h2>2. assertions</h2>
@@ -1879,50 +1892,50 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>2. assertions</h2>
 <p><code>assertVector</code> -&gt; Check if an argument is a vector</p>
 <div class="fragment">
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">data &lt;-<span class="st"> </span>iris</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">assertVector</span>(<span class="dt">x =</span> data)</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw">assertVector</span>(<span class="dt">x =</span> data, <span class="dt">strict =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## Error in eval(expr, envir, enclos): Assertion on 'data' failed: Must be of type 'vector', not 'data.frame'.</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>data &lt;-<span class="st"> </span>iris</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">assertVector</span>(<span class="dt">x =</span> data)</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="kw">assertVector</span>(<span class="dt">x =</span> data, <span class="dt">strict =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): Assertion on &#39;data&#39; failed: Must be of type &#39;vector&#39;, not &#39;data.frame&#39;.</code></pre>
 </div>
 </section>
 <section id="assertions-2" class="slide level2">
 <h2>2. assertions</h2>
 <p><code>assertChoice</code> -&gt; Check if an object is an element of a given set</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">measure &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">assertChoice</span>(<span class="dt">x =</span> measure, <span class="dt">choices =</span> <span class="kw">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;median&quot;</span>), <span class="dt">null.ok =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">measure &lt;-<span class="st"> &quot;sd&quot;</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="kw">assertChoice</span>(<span class="dt">x =</span> measure, <span class="dt">choices =</span> <span class="kw">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;median&quot;</span>))</a></code></pre></div>
-<pre><code>## Error in eval(expr, envir, enclos): Assertion on 'measure' failed: Must be element of set {'mean','median'}, but is 'sd'.</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>measure &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">assertChoice</span>(<span class="dt">x =</span> measure, <span class="dt">choices =</span> <span class="kw">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;median&quot;</span>), <span class="dt">null.ok =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a>measure &lt;-<span class="st"> &quot;sd&quot;</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="kw">assertChoice</span>(<span class="dt">x =</span> measure, <span class="dt">choices =</span> <span class="kw">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;median&quot;</span>))</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): Assertion on &#39;measure&#39; failed: Must be element of set {&#39;mean&#39;,&#39;median&#39;}, but is &#39;sd&#39;.</code></pre>
 </section>
 <section id="assertions-3" class="slide level2">
 <h2>2. assertions</h2>
 <p><code>assertLogical</code> -&gt; Check if an argument is a vector of type logical</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">na.rm &lt;-<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">assertLogical</span>(<span class="dt">x =</span> na.rm)</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="kw">assertLogical</span>(<span class="dt">x =</span> na.rm, <span class="dt">any.missing =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<pre><code>## Error in eval(expr, envir, enclos): Assertion on 'na.rm' failed: Contains missing values (element 1).</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>na.rm &lt;-<span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="kw">assertLogical</span>(<span class="dt">x =</span> na.rm)</span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="kw">assertLogical</span>(<span class="dt">x =</span> na.rm, <span class="dt">any.missing =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): Assertion on &#39;na.rm&#39; failed: Contains missing values (element 1).</code></pre>
 </section>
 <section id="assertions-4" class="slide level2">
 <h2>2. assertions</h2>
 <p><code>assertNumeric</code> -&gt; Check that an argument is a vector of type numeric</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">quantiles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="ot">NA</span>, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">assertNumeric</span>(<span class="dt">x =</span> quantiles, <span class="dt">lower =</span> <span class="dv">0</span>, <span class="dt">upper =</span> <span class="dv">1</span>, <span class="dt">any.missing =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<pre><code>## Error in eval(expr, envir, enclos): Assertion on 'quantiles' failed: Contains missing values (element 3).</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>quantiles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="ot">NA</span>, <span class="dv">2</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">assertNumeric</span>(<span class="dt">x =</span> quantiles, <span class="dt">lower =</span> <span class="dv">0</span>, <span class="dt">upper =</span> <span class="dv">1</span>, <span class="dt">any.missing =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): Assertion on &#39;quantiles&#39; failed: Contains missing values (element 3).</code></pre>
 <div class="fragment">
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">quantiles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">assertNumeric</span>(<span class="dt">x =</span> quantiles, <span class="dt">lower =</span> <span class="dv">0</span>, <span class="dt">upper =</span> <span class="dv">1</span>, <span class="dt">any.missing =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<pre><code>## Error in eval(expr, envir, enclos): Assertion on 'quantiles' failed: Element 3 is not &lt;= 1.</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>quantiles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">2</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="kw">assertNumeric</span>(<span class="dt">x =</span> quantiles, <span class="dt">lower =</span> <span class="dv">0</span>, <span class="dt">upper =</span> <span class="dv">1</span>, <span class="dt">any.missing =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): Assertion on &#39;quantiles&#39; failed: Element 3 is not &lt;= 1.</code></pre>
 </div>
 </section>
 <section id="assertions-5" class="slide level2">
 <h2>2. assertions</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">report_summary</span>(<span class="dt">data =</span> iris, <span class="dt">measure =</span> <span class="st">&quot;median&quot;</span>)</a></code></pre></div>
-<pre><code>## Error in report_summary(data = iris, measure = &quot;median&quot;): Assertion on 'data' failed: Must be of type 'vector', not 'data.frame'.</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">report_summary</span>(<span class="dt">data =</span> iris<span class="op">$</span>Sepal.Length, <span class="dt">measure =</span> <span class="st">&quot;sd&quot;</span>)</a></code></pre></div>
-<pre><code>## Error in report_summary(data = iris$Sepal.Length, measure = &quot;sd&quot;): Assertion on 'measure' failed: Must be element of set {'mean','median'}, but is 'sd'.</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">report_summary</span>(<span class="dt">data =</span> iris, <span class="dt">measure =</span> <span class="st">&quot;median&quot;</span>)</span></code></pre></div>
+<pre><code>## Error in report_summary(data = iris, measure = &quot;median&quot;): Assertion on &#39;data&#39; failed: Must be of type &#39;vector&#39;, not &#39;data.frame&#39;.</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">report_summary</span>(<span class="dt">data =</span> iris<span class="op">$</span>Sepal.Length, <span class="dt">measure =</span> <span class="st">&quot;sd&quot;</span>)</span></code></pre></div>
+<pre><code>## Error in report_summary(data = iris$Sepal.Length, measure = &quot;sd&quot;): Assertion on &#39;measure&#39; failed: Must be element of set {&#39;mean&#39;,&#39;median&#39;}, but is &#39;sd&#39;.</code></pre>
 </section>
 <section id="tests" class="slide level2">
 <h2>3. tests</h2>
@@ -1932,17 +1945,17 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="tests-1" class="slide level2">
 <h2>3. tests</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">use_test</span>(<span class="st">&quot;greet&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">use_test</span>(<span class="st">&quot;greet&quot;</span>)</span></code></pre></div>
 <p>this opens a new file, in which we find a first test</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">test_that</span>(<span class="st">&quot;multiplication works&quot;</span>, {</a>
-<a class="sourceLine" id="cb23-2" data-line-number="2">  <span class="kw">expect_equal</span>(<span class="dt">object =</span> <span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span>, <span class="dt">expected =</span> <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb23-3" data-line-number="3">})</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">test_that</span>(<span class="st">&quot;multiplication works&quot;</span>, {</span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="kw">expect_equal</span>(<span class="dt">object =</span> <span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span>, <span class="dt">expected =</span> <span class="dv">4</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a>})</span></code></pre></div>
 <div class="fragment">
 <p>change that to</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">test_that</span>(<span class="st">&quot;output is a character string&quot;</span>, {</a>
-<a class="sourceLine" id="cb24-2" data-line-number="2">  out &lt;-<span class="st"> </span><span class="kw">greet</span>(<span class="dt">whom =</span> <span class="st">&quot;World&quot;</span>)</a>
-<a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="kw">expect_character</span>(<span class="dt">x =</span> out, <span class="dt">len =</span> <span class="dv">1</span>, <span class="dt">pattern =</span> <span class="st">&quot;Hello.*!&quot;</span>)</a>
-<a class="sourceLine" id="cb24-4" data-line-number="4">})</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">test_that</span>(<span class="st">&quot;output is a character string&quot;</span>, {</span>
+<span id="cb24-2"><a href="#cb24-2"></a>  out &lt;-<span class="st"> </span><span class="kw">greet</span>(<span class="dt">whom =</span> <span class="st">&quot;World&quot;</span>)</span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="kw">expect_character</span>(<span class="dt">x =</span> out, <span class="dt">len =</span> <span class="dv">1</span>, <span class="dt">pattern =</span> <span class="st">&quot;Hello.*!&quot;</span>)</span>
+<span id="cb24-4"><a href="#cb24-4"></a>})</span></code></pre></div>
 </div>
 </section>
 <section id="tests-2" class="slide level2">
